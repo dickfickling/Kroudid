@@ -39,10 +39,20 @@ class OnboardViewController: UIViewController {
     @IBAction func loginButtonPressed(sender: AnyObject) {
         let email: NSString = self.emailTextField.text
         if email.length > 0 {
-            var user = User(email: self.emailTextField.text)
-            self.performSegueWithIdentifier("mainViewSegue", sender: self)
+            let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            hud.color = navy
+            User.enter(self.emailTextField.text, success: { user in
+                hud.hide(true)
+                self.performSegueWithIdentifier("mainViewSegue", sender: self)
+            },
+                failure: { error in
+                    hud.hide(true)
+                    let alert = UIAlertView(title: "Login failed", message: "Login failed wtf", delegate: nil, cancelButtonTitle: "dag")
+                    alert.show()
+            })
         } else {
             let alert = UIAlertView(title: "Enter Email", message: "Please enter your email", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
         }
     }
 

@@ -37,9 +37,6 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
 @property (nonatomic, strong) AGSGraphicsLayer* fencesLayer;
 @property (nonatomic, strong) AGSGraphicsLayer* commuteLayer;
 
-
-@property (nonatomic, strong) User* user;
-
 @end
 
 @implementation RouteViewController
@@ -134,12 +131,12 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     NSString* address2 = self.workTextField.text;
     
     __weak RouteViewController* weakSelf = self;
-    [self.user findHomeAddress:address1 workAddress:address2 completion:^(NSError* e) {
+    [[User storedUser] findHomeAddress:address1 workAddress:address2 completion:^(NSError* e) {
         
         [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
         
         if (!e) {
-            weakSelf.user.myCommute.gps = weakSelf.mapView.locationDisplay;
+            [User storedUser].myCommute.gps = weakSelf.mapView.locationDisplay;
         }
         
         [weakSelf drawCommute];
@@ -148,7 +145,7 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
 
 - (void)drawCommute
 {
-    if (![self.user hasValidCommute]){
+    if (![[User storedUser] hasValidCommute]){
         return;
     }
     
@@ -168,11 +165,12 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     sfs2.color = [[UIColor greenColor] colorWithAlphaComponent:0.5];
     sfs2.outline = sls2;
     
-    AGSGraphic* fence1 = [AGSGraphic graphicWithGeometry:self.user.myCommute.p1Geofence
+    User* user = [User storedUser];
+    AGSGraphic* fence1 = [AGSGraphic graphicWithGeometry:user.myCommute.p1Geofence
                                                   symbol:sfs1
                                               attributes:nil];
     
-    AGSGraphic* fence2 = [AGSGraphic graphicWithGeometry:self.user.myCommute.p2Geofence
+    AGSGraphic* fence2 = [AGSGraphic graphicWithGeometry:user.myCommute.p2Geofence
                                                   symbol:sfs2
                                               attributes:nil];
     
@@ -180,8 +178,8 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     
     //  Add home and work locations to maps
     AGSGeometryEngine * ge = [AGSGeometryEngine defaultGeometryEngine];
-    AGSPoint* p1 = (AGSPoint*)[ge projectGeometry:self.user.homeLocation toSpatialReference:self.mapView.spatialReference];
-    AGSPoint* p2 = (AGSPoint*)[ge projectGeometry:self.user.workLocation toSpatialReference:self.mapView.spatialReference];
+    AGSPoint* p1 = (AGSPoint*)[ge projectGeometry:user.homeLocation toSpatialReference:self.mapView.spatialReference];
+    AGSPoint* p2 = (AGSPoint*)[ge projectGeometry:user.workLocation toSpatialReference:self.mapView.spatialReference];
     
     AGSSimpleMarkerSymbol* sms1 = [AGSSimpleMarkerSymbol simpleMarkerSymbol];
     sms1.color = [UIColor redColor];

@@ -9,9 +9,7 @@
 #import "User.h"
 #import "Commute.h"
 
-#define kNSUserDefaultsEmailKey @"email"
-#define kNSUserDefaultsLockedKey @"locked"
-
+static User* sharedUser = nil;
 
 @interface User() <AGSLocatorDelegate>
 
@@ -25,7 +23,6 @@
 
 @end
 
-
 @implementation User
 
 - (id)initWithEmail:(NSString *)email {
@@ -35,7 +32,7 @@
 - (void)setLocked:(bool)locked {
     _locked = locked;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:locked forKey:kNSUserDefaultsLockedKey];
+    [defaults setBool:locked forKey:UserDefaultsLockedKey];
 }
 
 - (id)initWithEmail:(NSString*)email locked:(BOOL)locked {
@@ -46,8 +43,8 @@
         
         // Store email and locked
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:email forKey:kNSUserDefaultsEmailKey];
-        [defaults setBool:locked forKey:kNSUserDefaultsLockedKey];
+        [defaults setObject:email forKey:UserDefaultsEmailKey];
+        [defaults setBool:locked forKey:UserDefaultsLockedKey];
         [defaults synchronize];
     }
     
@@ -57,12 +54,18 @@
 // Can return nil if there is no stored user on device
 + (User*)storedUser {
     
+    if (sharedUser) {
+        return sharedUser;
+    }
+    
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString* email = [defaults objectForKey:kNSUserDefaultsEmailKey];
-    BOOL locked = [defaults boolForKey:kNSUserDefaultsLockedKey];
+    NSString* email = [defaults objectForKey:UserDefaultsEmailKey];
+    BOOL locked = [defaults boolForKey:UserDefaultsLockedKey];
     
     if (email) {
-        return [[User alloc] initWithEmail:email locked:locked];
+        sharedUser =  [[User alloc] initWithEmail:email locked:locked];
+        return sharedUser;
     }
     
     return nil;
@@ -72,7 +75,7 @@
 {
     // Clear entry in defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:nil forKey:kNSUserDefaultsEmailKey];
+    [defaults setObject:nil forKey:UserDefaultsEmailKey];
     [defaults synchronize];
 }
 
