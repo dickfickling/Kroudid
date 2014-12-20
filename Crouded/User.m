@@ -10,6 +10,7 @@
 #import "Commute.h"
 
 #define kNSUserDefaultsEmailKey @"email"
+#define kNSUserDefaultsLockedKey @"locked"
 
 
 @interface User() <AGSLocatorDelegate>
@@ -27,15 +28,26 @@
 
 @implementation User
 
+- (id)initWithEmail:(NSString *)email {
+    return [self initWithEmail:email locked:false];
+}
 
-- (id)initWithEmail:(NSString*)email {
+- (void)setLocked:(bool)locked {
+    _locked = locked;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:locked forKey:kNSUserDefaultsLockedKey];
+}
+
+- (id)initWithEmail:(NSString*)email locked:(BOOL)locked {
     self = [super init];
     if (self) {
         _email = email;
+        _locked = locked;
         
-        // Store email
+        // Store email and locked
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:email forKey:kNSUserDefaultsEmailKey];
+        [defaults setBool:locked forKey:kNSUserDefaultsLockedKey];
         [defaults synchronize];
     }
     
@@ -47,9 +59,10 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString* email = [defaults objectForKey:kNSUserDefaultsEmailKey];
+    BOOL locked = [defaults boolForKey:kNSUserDefaultsLockedKey];
     
     if (email) {
-        return [[User alloc] initWithEmail:email];
+        return [[User alloc] initWithEmail:email locked:locked];
     }
     
     return nil;

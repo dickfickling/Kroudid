@@ -13,5 +13,6 @@
 @property (nonatomic) NSUInteger points;
 @property (nonatomic) NSUInteger timeSaved;
 @property (nonatomic) NSUInteger totalTimeSaved;
+@property (nonatomic) NSDate* registrationDate;
 
 @end

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NSString* const IncentivesChangedNotification = @"foo";
+
 @interface Incentives : NSObject
 
 @property (nonatomic, strong) NSArray* times;

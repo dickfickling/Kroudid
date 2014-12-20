@@ -11,10 +11,12 @@
 
 @class Stats;
 @class Commute;
+@class Incentives;
 
 @interface User : NSObject
 
 @property (nonatomic, readonly) NSString* email;
+@property (nonatomic) bool locked;
 
 @property (nonatomic, strong, readonly) AGSPoint* homeLocation;
 @property (nonatomic, strong, readonly) AGSPoint* workLocation;
@@ -23,8 +25,11 @@
 
 @property (nonatomic, strong, readonly) Stats*    myStats;
 
+@property (nonatomic, strong, readonly) Incentives* myIncentives;
+
 // Will overwrite any previous user on device
 - (id)initWithEmail:(NSString*)email;
+- (id)initWithEmail:(NSString *)email locked:(BOOL)locked;
 
 // Can return nil if there is no stored user on device
 + (User*)storedUser;

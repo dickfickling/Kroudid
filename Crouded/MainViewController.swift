@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
+    @IBOutlet weak var lockButton: UIButton!
     var pageViewController: UIPageViewController!
     var statsViewControllers: [UIViewController] = []
 
@@ -30,6 +31,9 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
         self.pageViewController.dataSource = self
         self.pageViewController.delegate = self
         self.pageViewController.setViewControllers([self.statsViewControllers[1]], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+        
+        updateIncentivesDisplay()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("incentivesChanged:"), name: IncentivesChangedNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,12 +43,34 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
     
     override func viewDidAppear(animated: Bool) {
         if User.storedUser().hasValidCommute() {
-            
+            updateViewForUser()
         } else {
             //let alert = UIAlertView(title: "Set your commute", message: "Before you can use Crouded, you have to tell us a bit about your commute.", delegate: self, cancelButtonTitle: "OK")
             //alert.show()
         }
     }
+    
+    func incentivesChanged(info: NSNotification) {
+        updateIncentivesDisplay()
+    }
+    
+    func updateIncentivesDisplay() {
+        let incentives = User.storedUser().myIncentives
+        
+    }
+    
+    func updateViewForUser() {
+        let user = User.storedUser()
+        self.lockButton.setTitle(user.locked ? "🔒" : "🔓", forState: UIControlState.Normal)
+        
+    }
+    
+    @IBAction func lockButtonPressed(sender: AnyObject) {
+        let user = User.storedUser()
+        user.locked = !user.locked
+        updateViewForUser()
+    }
+    
     
     func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
         self.performSegueWithIdentifier("setCommuteSegue", sender: self)
