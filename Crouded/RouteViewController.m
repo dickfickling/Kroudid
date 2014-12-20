@@ -8,12 +8,15 @@
 
 #import "RouteViewController.h"
 #import "User.h"
+#import "Commute.h"
 #import <ArcGIS/ArcGIS.h>
 
 @interface RouteViewController ()
 
 @property (nonatomic, strong) AGSMapView* mapView;
 @property (nonatomic, strong) User* user;
+
+@property (nonatomic, strong) Commute* commute;
 
 
 @end
@@ -38,14 +41,15 @@
     
     [self enableGps:AGSLocationDisplayAutoPanModeDefault];
     
-    _user = [User storedUser];
-    if (!self.user) {
-        NSLog(@"No user stored");
-        _user = [[User alloc] initWithEmail:@"sampleuser@gmail.com"];
-    }
-    else {
-        NSLog(@"Found user: %@", self.user.email);
-    }
+    NSString* address1 = @"1020 W. Fern Ave Redlands, CA 92373";
+    NSString* address2 = @"3663 Canyon Crest Ave Riverside, CA 92507";
+    
+    _commute = [[Commute alloc] initWithAddress:address1
+                                                 address2:address2
+                                               completion:^(NSError* e) {
+                                                   NSLog(@"Something!");
+                                               }];
+    
     
 }
 

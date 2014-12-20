@@ -18,7 +18,7 @@
 		32DFAAD81A45482D00ECB97A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAAD71A45482D00ECB97A /* User.m */; };
 		32DFAADB1A45484600ECB97A /* Incentives.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAADA1A45484600ECB97A /* Incentives.m */; };
 		32DFAADE1A45485E00ECB97A /* Stats.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAADD1A45485E00ECB97A /* Stats.m */; };
-		32DFAAE91A45584200ECB97A /* WorkRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAAE81A45584200ECB97A /* WorkRoute.m */; };
+		32DFAAE91A45584200ECB97A /* Commute.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAAE81A45584200ECB97A /* Commute.m */; };
 		C0E92E83D5E0F09CEE5FBF0B /* libPods-Crouded.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D67E6C3404EBF1C94C5B086B /* libPods-Crouded.a */; };
 /* End PBXBuildFile section */
 
@@ -53,8 +53,8 @@
 		32DFAADA1A45484600ECB97A /* Incentives.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Incentives.m; sourceTree = "<group>"; };
 		32DFAADC1A45485E00ECB97A /* Stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stats.h; sourceTree = "<group>"; };
 		32DFAADD1A45485E00ECB97A /* Stats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stats.m; sourceTree = "<group>"; };
-		32DFAAE71A45584200ECB97A /* WorkRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkRoute.h; sourceTree = "<group>"; };
-		32DFAAE81A45584200ECB97A /* WorkRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkRoute.m; sourceTree = "<group>"; };
+		32DFAAE71A45584200ECB97A /* Commute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commute.h; sourceTree = "<group>"; };
+		32DFAAE81A45584200ECB97A /* Commute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Commute.m; sourceTree = "<group>"; };
 		C249398942C316E91D812403 /* Pods-Crouded.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crouded.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crouded/Pods-Crouded.debug.xcconfig"; sourceTree = "<group>"; };
 		D67E6C3404EBF1C94C5B086B /* libPods-Crouded.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Crouded.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B0BFBED3BAD6DB69A4C9F0 /* Pods-Crouded.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crouded.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crouded/Pods-Crouded.release.xcconfig"; sourceTree = "<group>"; };
@@ -145,14 +145,14 @@
 		32DFAADF1A45486600ECB97A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				32DFAAE71A45584200ECB97A /* Commute.h */,
+				32DFAAE81A45584200ECB97A /* Commute.m */,
 				32DFAAD61A45482D00ECB97A /* User.h */,
 				32DFAAD71A45482D00ECB97A /* User.m */,
 				32DFAAD91A45484600ECB97A /* Incentives.h */,
 				32DFAADA1A45484600ECB97A /* Incentives.m */,
 				32DFAADC1A45485E00ECB97A /* Stats.h */,
 				32DFAADD1A45485E00ECB97A /* Stats.m */,
-				32DFAAE71A45584200ECB97A /* WorkRoute.h */,
-				32DFAAE81A45584200ECB97A /* WorkRoute.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -309,7 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32DFAAE91A45584200ECB97A /* WorkRoute.m in Sources */,
+				32DFAAE91A45584200ECB97A /* Commute.m in Sources */,
 				0F7510D21A453CE5005AA052 /* OnboardViewController.swift in Sources */,
 				0F7510A11A453C93005AA052 /* AppDelegate.swift in Sources */,
 				32DFAAD81A45482D00ECB97A /* User.m in Sources */,
