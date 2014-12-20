@@ -15,6 +15,8 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
     var statsViewControllers: [UIViewController] = []
 
     override func viewDidLoad() {
+        
+        /*
         super.viewDidLoad()
 
         self.statsViewControllers = []
@@ -34,6 +36,8 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
         
         updateIncentivesDisplay()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("incentivesChanged:"), name: IncentivesChangedNotification, object: nil)
+
+*/
     }
 
     override func didReceiveMemoryWarning() {
