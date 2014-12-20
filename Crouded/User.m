@@ -27,17 +27,14 @@ static User* sharedUser = nil;
 
 @implementation User
 
-- (id)initWithEmail:(NSString *)email stats:(Stats *)stats {
-    return [self initWithEmail:email locked:false stats:stats];
-}
-
 - (void)setLocked:(bool)locked {
     _locked = locked;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:locked forKey:UserDefaultsLockedKey];
 }
 
-- (id)initWithEmail:(NSString*)email locked:(BOOL)locked  stats: (Stats*)stats {
+- (id)initWithEmail:(NSString *)email stats:(Stats*)stats home:(NSDictionary*)home work:(NSDictionary*)work locked:(BOOL)locked
+{
     self = [super init];
     if (self) {
         _email = email;
@@ -45,12 +42,27 @@ static User* sharedUser = nil;
         _myStats = stats;
         _myIncentives = [[Incentives alloc] initWithTimes:[[NSArray alloc] init]];
         
+        if (home && work) {
+            _homeLocation  = [AGSPoint pointWithX:[[home objectForKey:@"longitude"] doubleValue]
+                                                     y:[[home objectForKey:@"latitude"] doubleValue]
+                                      spatialReference:[AGSSpatialReference wgs84SpatialReference]];
+            
+            _workLocation = [AGSPoint pointWithX:[[work objectForKey:@"longitude"] doubleValue]
+                                                     y:[[work objectForKey:@"latitude"] doubleValue]
+                                      spatialReference:[AGSSpatialReference wgs84SpatialReference]];
+            
+            
+            _myCommute = [[Commute alloc] initWithPoint1:self.homeLocation point2:self.workLocation];
+        }
+        
         // Store email and locked
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:email forKey:UserDefaultsEmailKey];
         [defaults setBool:locked forKey:UserDefaultsLockedKey];
         [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:stats] forKey:UserDefaultsStatsKey];
         [defaults synchronize];
+        
+        sharedUser = self;
     }
     
     return self;
@@ -70,7 +82,7 @@ static User* sharedUser = nil;
     Stats* stats = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults dataForKey:UserDefaultsStatsKey]];
     
     if (email) {
-        sharedUser = [[User alloc] initWithEmail:email locked:locked stats:stats];
+        sharedUser = [[User alloc] initWithEmail:email stats:stats home:nil work:nil locked:locked];
         return sharedUser;
     }
     
