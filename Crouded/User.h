@@ -28,4 +28,10 @@
 
 + (void)signOutStoredUser;
 
+- (void)findHomeAddress:(NSString*)homeAddress
+             workAddress:(NSString*)address2
+           completion:(void (^)(NSError*))completion;
+
+- (BOOL)hasValidCommute;
+
 @end

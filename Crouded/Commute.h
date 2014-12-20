@@ -11,15 +11,14 @@
 
 @interface Commute : NSObject
 
-@property (nonatomic, copy) AGSPoint* point1;
-@property (nonatomic, copy) AGSPoint* point2;
-
 @property (nonatomic, strong) NSDate* startDate;
 @property (nonatomic, strong) NSDate* endDate;
 
-- (id)initWithAddress:(NSString*)address1
-             address2:(NSString*)address2
-           completion:(void (^)(NSError*))completion;
+@property (nonatomic, strong, readonly) AGSPoint* p1;
+@property (nonatomic, strong, readonly) AGSPoint* p2;
+
+- (id)initWithPoint1:(AGSPoint*)p1
+              point2:(AGSPoint*)p2;
 
 - (void)startCommute;
 - (void)endCommuteAndReachedDestination:(BOOL)reached;

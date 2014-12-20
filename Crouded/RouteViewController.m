@@ -8,17 +8,15 @@
 
 #import "RouteViewController.h"
 #import "User.h"
-#import "Commute.h"
 #import <ArcGIS/ArcGIS.h>
 
 @interface RouteViewController ()
 
 @property (nonatomic, strong) AGSMapView* mapView;
 @property (nonatomic, strong) AGSGraphicsLayer* commuteLayer;
+
+
 @property (nonatomic, strong) User* user;
-
-@property (nonatomic, strong) Commute* commute;
-
 
 @end
 
@@ -45,6 +43,11 @@
     _commuteLayer = [AGSGraphicsLayer graphicsLayer];
     [self.mapView addMapLayer:self.commuteLayer];
     
+    _user = [User storedUser];
+    if (!self.user) {
+        _user = [[User alloc] initWithEmail:@"sample1234@gmail.com"];
+    }
+    
     [self findTypicalCommute];
     
 }
@@ -55,22 +58,20 @@
     NSString* address2 = @"5015 La Mart Riverside, CA 92507";
     
     __weak RouteViewController* weakSelf = self;
-    _commute = [[Commute alloc] initWithAddress:address1
-                                       address2:address2
-                                     completion:^(NSError* e) {
-                                         [weakSelf drawCommute];
-                                     }];
+    [self.user findHomeAddress:address1 workAddress:address2 completion:^(NSError* e) {
+        [weakSelf drawCommute];
+    }];
 }
 
 - (void)drawCommute
 {
-    if (!self.commute || !self.commute.point1 || !self.commute.point2) {
-        [self findTypicalCommute];
+    if (![self.user hasValidCommute]){
+        return;
     }
     
     AGSGeometryEngine * ge = [AGSGeometryEngine defaultGeometryEngine];
-    AGSPoint* p1 = (AGSPoint*)[ge projectGeometry:self.commute.point1 toSpatialReference:self.mapView.spatialReference];
-    AGSPoint* p2 = (AGSPoint*)[ge projectGeometry:self.commute.point2 toSpatialReference:self.mapView.spatialReference];
+    AGSPoint* p1 = (AGSPoint*)[ge projectGeometry:self.user.homeLocation toSpatialReference:self.mapView.spatialReference];
+    AGSPoint* p2 = (AGSPoint*)[ge projectGeometry:self.user.workLocation toSpatialReference:self.mapView.spatialReference];
     
     AGSSimpleMarkerSymbol* sms1 = [AGSSimpleMarkerSymbol simpleMarkerSymbol];
     sms1.color = [UIColor redColor];
