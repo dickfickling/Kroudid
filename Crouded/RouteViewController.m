@@ -9,6 +9,8 @@
 #import "RouteViewController.h"
 #import "User.h"
 #import "Commute.h"
+#import "UIColor+Additions.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 #import <ArcGIS/ArcGIS.h>
 
 // first parameter is an NSDictionary of metrics (or nil),
@@ -73,6 +75,7 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     
     UIToolbar* toolbar = [[UIToolbar alloc] init];
     toolbar.translatesAutoresizingMaskIntoConstraints = NO;
+    toolbar.barTintColor = [UIColor crowdedBlueColor];
     
     
     UIBarButtonItem* flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
@@ -82,8 +85,7 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
                                                                    style:UIBarButtonItemStyleDone
                                                                target:self
                                                                action:@selector(findTypicalCommute)];
-    self.findButton.enabled = NO;
-    
+    self.findButton.tintColor = [UIColor whiteColor];
     
     _homeTextField = [[UITextField alloc] init];
     _homeTextField.translatesAutoresizingMaskIntoConstraints = NO;
@@ -109,22 +111,32 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     AddConstraints(NSLConstraints(@"H:|[toolbar]|"));
     AddConstraints(NSLConstraints(@"H:|-5-[_homeTextField]-5-|"));
     AddConstraints(NSLConstraints(@"H:|-5-[_workTextField]-5-|"));
-    AddConstraints(NSLConstraints(@"V:|-20-[toolbar]-2-[_homeTextField]-2-[_workTextField][mv]|"));
+    AddConstraints(NSLConstraints(@"V:|-20-[toolbar][mv]|"));
+    AddConstraints(NSLConstraints(@"V:[toolbar]-5-[_homeTextField(35)]-5-[_workTextField(35)]"));
     
     [self.view addConstraints:constraints];
     
-    //[self findTypicalCommute];
+    [self prepopulateTextFields];
+}
+
+- (void)prepopulateTextFields
+{
+    self.homeTextField.text = @"10889 N DE ANZA BLVD Cupertino, CA, 95014";
+    self.workTextField.text = @"10715 GRAPNEL PL Cupertino, CA 95014";
+    //NSString* address2 = @"10711 BAXTER AVE LOS ALTOS, CA 94024";
 }
 
 - (void)findTypicalCommute
 {
-    NSString* address1 = @"10889 N DE ANZA BLVD Cupertino, CA, 95014";
-    
-    NSString* address2 = @"10715 GRAPNEL PL Cupertino, CA 95014";
-    //NSString* address2 = @"10711 BAXTER AVE LOS ALTOS, CA 94024";
+    MBProgressHUD* v = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    v.color = [UIColor crowdedBlueColor];
+    NSString* address1 = self.homeTextField.text;
+    NSString* address2 = self.workTextField.text;
     
     __weak RouteViewController* weakSelf = self;
     [self.user findHomeAddress:address1 workAddress:address2 completion:^(NSError* e) {
+        
+        [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
         
         if (!e) {
             weakSelf.user.myCommute.gps = weakSelf.mapView.locationDisplay;
