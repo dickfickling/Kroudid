@@ -32,11 +32,11 @@
     [self.view addSubview:_mapView];
     
     //Add a basemap tiled layer
-    NSURL* url = [NSURL URLWithString:@"http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer"];
+    NSURL* url = [NSURL URLWithString:@"http://services.arcgisonline.com/arcgis/rest/services/NatGeo_World_Map/MapServer"];
     AGSTiledMapServiceLayer *tiledLayer = [AGSTiledMapServiceLayer tiledMapServiceLayerWithURL:url];
     [self.mapView addMapLayer:tiledLayer withName:@"Basemap Tiled Layer"];
     
-    // Do any additional setup after loading the view.
+    [self enableGps:AGSLocationDisplayAutoPanModeDefault];
     
     _user = [User storedUser];
     if (!self.user) {
@@ -49,21 +49,13 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#define kGPSScale 12000
+
+- (void)enableGps:(AGSLocationDisplayAutoPanMode)mode
+{
+    AGSLocationDisplay* gps = self.mapView.locationDisplay;
+    gps.autoPanMode = mode;
+    [gps startDataSource];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
 
 @end
