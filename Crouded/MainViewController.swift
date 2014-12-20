@@ -16,7 +16,7 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
 
     override func viewDidLoad() {
         
-        /*
+        
         super.viewDidLoad()
 
         self.statsViewControllers = []
@@ -34,10 +34,12 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
         self.pageViewController.delegate = self
         self.pageViewController.setViewControllers([self.statsViewControllers[1]], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         
-        updateIncentivesDisplay()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("incentivesChanged:"), name: IncentivesChangedNotification, object: nil)
 
-*/
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,8 +51,8 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
         if User.storedUser().hasValidCommute() {
             updateViewForUser()
         } else {
-            //let alert = UIAlertView(title: "Set your commute", message: "Before you can use Crouded, you have to tell us a bit about your commute.", delegate: self, cancelButtonTitle: "OK")
-            //alert.show()
+            let alert = UIAlertView(title: "Set your commute", message: "Before you can use Crouded, you have to tell us a bit about your commute.", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
         }
     }
     
@@ -60,12 +62,20 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
     
     func updateIncentivesDisplay() {
         let incentives = User.storedUser().myIncentives
+        println(incentives.times.count)
         
     }
     
     func updateViewForUser() {
         let user = User.storedUser()
         self.lockButton.setTitle(user.locked ? "🔒" : "🔓", forState: UIControlState.Normal)
+        
+        if user.myIncentives.times.count > 0 {
+            updateIncentivesDisplay()
+        }
+        if !user.locked {
+            user.refreshIncentives()
+        }
         
     }
     
