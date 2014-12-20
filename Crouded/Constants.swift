@@ -9,6 +9,6 @@
 import Foundation
 
 
-let BASE_PATH = "http://192.168.150.178:8775"
+let BASE_PATH = "http://crowded9.mybluemix.net"
 
 let navy = UIColor(red: 86/255, green: 109/255, blue: 126/255, alpha: 1.0)
