@@ -10,4 +10,6 @@
 
 @interface Incentives : NSObject
 
+@property (nonatomic, strong) NSArray* times;
+
 @end

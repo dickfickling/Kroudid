@@ -7,10 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ArcGIS/ArcGIS.h>
+
+@class Stats;
 
 @interface User : NSObject
 
 @property (nonatomic, readonly) NSString* email;
+
+@property (nonatomic, strong, readonly) AGSPoint* homeLocation;
+@property (nonatomic, strong, readonly) AGSPoint* workLocation;
+
+@property (nonatomic, strong, readonly) Stats*    myStats;
 
 // Will overwrite any previous user on device
 - (id)initWithEmail:(NSString*)email;

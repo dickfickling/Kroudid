@@ -10,4 +10,8 @@
 
 @interface Stats : NSObject
 
+@property (nonatomic) NSUInteger points;
+@property (nonatomic) NSUInteger timeSaved;
+@property (nonatomic) NSUInteger totalTimeSaved;
+
 @end
