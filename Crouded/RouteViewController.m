@@ -63,7 +63,9 @@
 - (void)findTypicalCommute
 {
     NSString* address1 = @"10889 N DE ANZA BLVD Cupertino, CA, 95014";
-    NSString* address2 = @"10711 BAXTER AVE LOS ALTOS, CA 94024";
+    
+    NSString* address2 = @"10715 GRAPNEL PL Cupertino, CA 95014";
+    //NSString* address2 = @"10711 BAXTER AVE LOS ALTOS, CA 94024";
     
     __weak RouteViewController* weakSelf = self;
     [self.user findHomeAddress:address1 workAddress:address2 completion:^(NSError* e) {
@@ -120,11 +122,13 @@
     sms2.color = [UIColor greenColor];
     
     AGSGraphic* p1Graphic = [AGSGraphic graphicWithGeometry:p1
-                                                     symbol:sms1 attributes:nil];
+                                                     symbol:sms1
+                                                 attributes:nil];
     
     
     AGSGraphic* p2Graphic = [AGSGraphic graphicWithGeometry:p2
-                                                     symbol:sms2 attributes:nil];
+                                                     symbol:sms2
+                                                 attributes:nil];
     
     [self.commuteLayer addGraphics:@[p1Graphic, p2Graphic]];
     

@@ -10,9 +10,11 @@ typedef enum{
     CommuteStateUnknown = 0,
     CommuteStateAtP1,
     CommuteStateLeftP1,
+    CommuteStateAwayP1,
     CommuteStateArrivedP1,
     CommuteStateAtP2,
     CommuteStateLeftP2,
+    CommuteStateAwayP2,
     CommuteStateArrivedP2
 } CommuteState;
 
@@ -50,7 +52,7 @@ typedef enum{
     NSLog(@"End commute");
 }
 
-#define kBufferFactor 500
+#define kBufferFactor 300
 - (AGSGeometry*)p1Geofence
 {
     if (_p1Geofence == nil) {
@@ -128,6 +130,9 @@ typedef enum{
             }
             break;
         case CommuteStateLeftP1:
+            self.commuteState = CommuteStateAwayP1;
+            break;
+        case CommuteStateAwayP1:
             if (p1) {
                 self.commuteState = CommuteStateAtP1;
             }
@@ -144,6 +149,9 @@ typedef enum{
             }
             break;
         case CommuteStateLeftP2:
+            self.commuteState = CommuteStateAwayP2;
+            break;
+        case CommuteStateAwayP2:
             if (p2) {
                 self.commuteState = CommuteStateAtP2;
             }
@@ -173,6 +181,9 @@ typedef enum{
         case CommuteStateLeftP1:
             s = @"Left P1";
             break;
+        case CommuteStateAwayP1:
+            s = @"Away";
+            break;
         case CommuteStateArrivedP1:
             s = @"Arrived P1";
             break;
@@ -181,6 +192,9 @@ typedef enum{
             break;
         case CommuteStateLeftP2:
             s = @"Left P2";
+            break;
+        case CommuteStateAwayP2:
+            s = @"Away";
             break;
         case CommuteStateArrivedP2:
             s = @"Arrived P2";
