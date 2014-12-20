@@ -10,6 +10,7 @@
 #import <ArcGIS/ArcGIS.h>
 
 @class Stats;
+@class Commute;
 
 @interface User : NSObject
 
@@ -17,6 +18,8 @@
 
 @property (nonatomic, strong, readonly) AGSPoint* homeLocation;
 @property (nonatomic, strong, readonly) AGSPoint* workLocation;
+
+@property (nonatomic, strong, readonly) Commute* myCommute;
 
 @property (nonatomic, strong, readonly) Stats*    myStats;
 

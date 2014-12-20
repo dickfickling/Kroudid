@@ -7,6 +7,7 @@
 //
 
 #import "User.h"
+#import "Commute.h"
 
 #define kNSUserDefaultsEmailKey @"email"
 
@@ -63,7 +64,7 @@
 }
 
 - (BOOL)hasValidCommute {
-    return (self.homeLocation && self.workLocation);
+    return (self.homeLocation && self.workLocation && self.myCommute);
 }
 
 - (void)findHomeAddress:(NSString*)homeAddress
@@ -119,6 +120,8 @@
     if (self.homeLocation) {
         
         _workLocation = [ac.location copy];
+        
+        _myCommute = [[Commute alloc] initWithPoint1:self.homeLocation point2:self.workLocation];
         
         if (self.addressCompletion) {
             self.addressCompletion(nil);

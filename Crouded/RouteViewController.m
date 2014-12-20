@@ -8,11 +8,14 @@
 
 #import "RouteViewController.h"
 #import "User.h"
+#import "Commute.h"
 #import <ArcGIS/ArcGIS.h>
 
 @interface RouteViewController ()
 
 @property (nonatomic, strong) AGSMapView* mapView;
+
+@property (nonatomic, strong) AGSGraphicsLayer* fencesLayer;
 @property (nonatomic, strong) AGSGraphicsLayer* commuteLayer;
 
 
@@ -39,6 +42,9 @@
     [self.mapView addMapLayer:tiledLayer withName:@"Basemap Tiled Layer"];
     
     [self enableGps:AGSLocationDisplayAutoPanModeDefault];
+    
+    _fencesLayer = [AGSGraphicsLayer graphicsLayer];
+    [self.mapView addMapLayer:self.fencesLayer];
     
     _commuteLayer = [AGSGraphicsLayer graphicsLayer];
     [self.mapView addMapLayer:self.commuteLayer];
@@ -69,6 +75,33 @@
         return;
     }
     
+    AGSSimpleLineSymbol* sls1 = [AGSSimpleLineSymbol simpleLineSymbol];
+    sls1.color = [UIColor redColor];
+    
+    AGSSimpleLineSymbol* sls2 = [AGSSimpleLineSymbol simpleLineSymbol];
+    sls2.color = [UIColor greenColor];
+    
+    
+    // Add geofences to map
+    AGSSimpleFillSymbol* sfs1 = [AGSSimpleFillSymbol simpleFillSymbol];
+    sfs1.color = [[UIColor redColor] colorWithAlphaComponent:0.5];
+    sfs1.outline = sls1;
+    
+    AGSSimpleFillSymbol* sfs2 = [AGSSimpleFillSymbol simpleFillSymbol];
+    sfs2.color = [[UIColor greenColor] colorWithAlphaComponent:0.5];
+    sfs2.outline = sls2;
+    
+    AGSGraphic* fence1 = [AGSGraphic graphicWithGeometry:self.user.myCommute.p1Geofence
+                                                  symbol:sfs1
+                                              attributes:nil];
+    
+    AGSGraphic* fence2 = [AGSGraphic graphicWithGeometry:self.user.myCommute.p2Geofence
+                                                  symbol:sfs2
+                                              attributes:nil];
+    
+    [self.fencesLayer addGraphics:@[fence1, fence2]];
+    
+    //  Add home and work locations to maps
     AGSGeometryEngine * ge = [AGSGeometryEngine defaultGeometryEngine];
     AGSPoint* p1 = (AGSPoint*)[ge projectGeometry:self.user.homeLocation toSpatialReference:self.mapView.spatialReference];
     AGSPoint* p2 = (AGSPoint*)[ge projectGeometry:self.user.workLocation toSpatialReference:self.mapView.spatialReference];
@@ -88,15 +121,11 @@
     
     [self.commuteLayer addGraphics:@[p1Graphic, p2Graphic]];
     
-    AGSMutablePolyline* line = [[AGSMutablePolyline alloc] init];
-    [line addPathToPolyline];
-    [line addPoint:p1 toPath:0];
-    [line addPoint:p2 toPath:0];
     
+    // Zoom to show commute
     AGSMutableEnvelope* env = [p1.envelope mutableCopy];
     [env unionWithPoint:p2];
     [env expandByFactor:1.5];
-    
     [self.mapView zoomToEnvelope:env animated:YES];
 }
 

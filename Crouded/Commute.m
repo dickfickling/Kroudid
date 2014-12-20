@@ -32,7 +32,7 @@
     NSLog(@"End commute");
 }
 
-#define kBufferFactor 100
+#define kBufferFactor 1000
 - (AGSGeometry*)p1Geofence
 {
     if (_p1Geofence == nil) {
@@ -41,7 +41,7 @@
         
         double distance = [sr convertValue:kBufferFactor fromUnit:AGSSRUnitMeter];
         AGSGeometry* projectGeometry = [ge projectGeometry:self.p1 toSpatialReference:sr];
-        _p2Geofence = [ge bufferGeometry:projectGeometry byDistance:distance];
+        _p1Geofence = [ge bufferGeometry:projectGeometry byDistance:distance];
     }
     
     return _p1Geofence;
