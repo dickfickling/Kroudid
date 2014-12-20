@@ -72,6 +72,7 @@
 {
     _homeAddress = homeAddress;
     _workAddress = workAddress;
+    _addressCompletion = completion;
     
     if (!_locator) {
         NSURL* url = [NSURL URLWithString: @"http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"];
@@ -109,10 +110,6 @@
     else {
         [self fetchAddressForString:self.homeAddress];
     }
-}
-
-- (void)locator:(AGSLocator *)locator operation:(NSOperation *)op didFailToFetchLocatorInfoWithError:(NSError *)error {
-    NSLog(@"Error");
 }
 
 - (void)locator:(AGSLocator *)locator operation:(NSOperation*)op didFindLocationsForAddress:(NSArray *)candidates
