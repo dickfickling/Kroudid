@@ -87,6 +87,16 @@
     
     [self.commuteLayer addGraphics:@[p1Graphic, p2Graphic]];
     
+    AGSMutablePolyline* line = [[AGSMutablePolyline alloc] init];
+    [line addPathToPolyline];
+    [line addPoint:p1 toPath:0];
+    [line addPoint:p2 toPath:0];
+    
+    AGSMutableEnvelope* env = [p1.envelope mutableCopy];
+    [env unionWithPoint:p2];
+    [env expandByFactor:1.5];
+    
+    [self.mapView zoomToEnvelope:env animated:YES];
 }
 
 #define kGPSScale 12000
