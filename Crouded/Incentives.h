@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-NSString* const IncentivesChangedNotification = @"foo";
+#define IncentivesChangedNotification @"IncentivesChanged"
 
 @interface Incentives : NSObject
 

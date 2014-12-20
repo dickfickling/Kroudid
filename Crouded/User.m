@@ -70,7 +70,8 @@ static User* sharedUser = nil;
     Stats* stats = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults dataForKey:UserDefaultsStatsKey]];
     
     if (email) {
-        return [[User alloc] initWithEmail:email locked:locked stats:stats];
+        sharedUser = [[User alloc] initWithEmail:email locked:locked stats:stats];
+        return sharedUser;
     }
     
     return nil;
