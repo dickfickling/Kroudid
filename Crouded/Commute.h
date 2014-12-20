@@ -17,6 +17,10 @@
 @property (nonatomic, strong, readonly) AGSPoint* p1;
 @property (nonatomic, strong, readonly) AGSPoint* p2;
 
+@property (nonatomic, strong) AGSGeometry* p1Geofence;
+@property (nonatomic, strong) AGSGeometry* p2Geofence;
+
+
 - (id)initWithPoint1:(AGSPoint*)p1
               point2:(AGSPoint*)p2;
 
