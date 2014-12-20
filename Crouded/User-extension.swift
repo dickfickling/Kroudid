@@ -29,17 +29,24 @@ extension User {
         )
     }
     
-    func refreshIncentives() {
+    func refreshIncentives() { // checks to refresh every five minutes
         let commute = self.myCommute
         //TODO not from home
-        APIManager.get("/incentives/\(self.email)", params: ["from": "home"],
-            success: { data in
-                self.myIncentives.times.removeAll(keepCapacity: false)
-                let incentives = data["incentives"]! as [[String: AnyObject]]
-                self.myIncentives.times = incentives
-                NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: IncentivesChangedNotification, object: nil))
-            }, failure: { error in
-                println(error)
+        if !locked {
+            APIManager.get("/incentives/\(self.email)", params: ["from": "home"],
+                success: { data in
+                    self.myIncentives.times.removeAll(keepCapacity: false)
+                    let incentives = data["incentives"]! as [[String: AnyObject]]
+                    self.myIncentives.times = incentives
+                    NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: IncentivesChangedNotification, object: nil))
+                    
+                }, failure: { error in
+                    println(error)
+            })
+        }
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), {
+            self.refreshIncentives()
         })
     }
     

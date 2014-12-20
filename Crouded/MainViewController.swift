@@ -38,6 +38,10 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
 
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
