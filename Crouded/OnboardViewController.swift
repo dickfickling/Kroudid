@@ -26,17 +26,19 @@ class OnboardViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-//        if User.getUser() == nil {
-//            UIView.animateWithDuration(0.5, animations: {
-//                self.emailTextField.alpha = 1.0
-//                self.passwordTextField.alpha = 1.0
-//            })
-//        } else {
+        if User.storedUser() == nil {
+            UIView.animateWithDuration(0.5, animations: {
+                self.emailTextField.alpha = 1.0
+                self.passwordTextField.alpha = 1.0
+            })
+        } else {
             self.performSegueWithIdentifier("mainViewSegue", sender: self)
-//        }
+        }
     }
     
     @IBAction func loginButtonPressed(sender: AnyObject) {
+        var user = User(email: self.emailTextField.text)
+        self.performSegueWithIdentifier("mainViewSegue", sender: self)
     }
 
 }

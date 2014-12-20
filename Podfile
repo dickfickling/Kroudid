@@ -4,6 +4,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 target "Crouded" do
+  pod 'ArcGIS-Runtime-SDK-iOS'
   pod 'MBProgressHUD'
   pod 'AFNetworking'
 end
