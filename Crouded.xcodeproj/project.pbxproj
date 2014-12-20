@@ -1,479 +1,1149 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		0F7510A11A453C93005AA052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510A01A453C93005AA052 /* AppDelegate.swift */; };
-		0F7510AB1A453C93005AA052 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F7510AA1A453C93005AA052 /* Images.xcassets */; };
-		0F7510AE1A453C93005AA052 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7510AC1A453C93005AA052 /* LaunchScreen.xib */; };
-		0F7510BA1A453C93005AA052 /* CroudedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510B91A453C93005AA052 /* CroudedTests.swift */; };
-		0F7510CF1A453CE5005AA052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F7510CB1A453CE5005AA052 /* Main.storyboard */; };
-		0F7510D11A453CE5005AA052 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510CD1A453CE5005AA052 /* MainViewController.swift */; };
-		0F7510D21A453CE5005AA052 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510CE1A453CE5005AA052 /* OnboardViewController.swift */; };
-		0F7510DC1A453F32005AA052 /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510DB1A453F32005AA052 /* RouteViewController.m */; };
-		32DFAAD31A45449D00ECB97A /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 32DFAAD21A45449D00ECB97A /* ArcGIS.bundle */; };
-		32DFAAD81A45482D00ECB97A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAAD71A45482D00ECB97A /* User.m */; };
-		32DFAADB1A45484600ECB97A /* Incentives.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAADA1A45484600ECB97A /* Incentives.m */; };
-		32DFAADE1A45485E00ECB97A /* Stats.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAADD1A45485E00ECB97A /* Stats.m */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		0F7510B41A453C93005AA052 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F7510931A453C93005AA052 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0F75109A1A453C93005AA052;
-			remoteInfo = Crouded;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		0F75109B1A453C93005AA052 /* Crouded.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crouded.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F75109F1A453C93005AA052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F7510A01A453C93005AA052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0F7510AA1A453C93005AA052 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		0F7510AD1A453C93005AA052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		0F7510B31A453C93005AA052 /* CroudedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CroudedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F7510B81A453C93005AA052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F7510B91A453C93005AA052 /* CroudedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CroudedTests.swift; sourceTree = "<group>"; };
-		0F7510CB1A453CE5005AA052 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		0F7510CD1A453CE5005AA052 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		0F7510CE1A453CE5005AA052 /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
-		0F7510D31A453DA2005AA052 /* Crouded-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crouded-Bridging-Header.h"; sourceTree = "<group>"; };
-		0F7510DA1A453F32005AA052 /* RouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteViewController.h; sourceTree = "<group>"; };
-		0F7510DB1A453F32005AA052 /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteViewController.m; sourceTree = "<group>"; };
-		32DFAAD21A45449D00ECB97A /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ArcGIS.bundle; path = ../../Library/SDKs/ArcGIS/iOS/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle; sourceTree = "<group>"; };
-		32DFAAD61A45482D00ECB97A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		32DFAAD71A45482D00ECB97A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		32DFAAD91A45484600ECB97A /* Incentives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Incentives.h; sourceTree = "<group>"; };
-		32DFAADA1A45484600ECB97A /* Incentives.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Incentives.m; sourceTree = "<group>"; };
-		32DFAADC1A45485E00ECB97A /* Stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stats.h; sourceTree = "<group>"; };
-		32DFAADD1A45485E00ECB97A /* Stats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stats.m; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		0F7510981A453C93005AA052 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F7510B01A453C93005AA052 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		0F7510921A453C93005AA052 = {
-			isa = PBXGroup;
-			children = (
-				0F75109D1A453C93005AA052 /* Crouded */,
-				0F7510B61A453C93005AA052 /* CroudedTests */,
-				0F75109C1A453C93005AA052 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		0F75109C1A453C93005AA052 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0F75109B1A453C93005AA052 /* Crouded.app */,
-				0F7510B31A453C93005AA052 /* CroudedTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		0F75109D1A453C93005AA052 /* Crouded */ = {
-			isa = PBXGroup;
-			children = (
-				32DFAADF1A45486600ECB97A /* Models */,
-				32DFAAD21A45449D00ECB97A /* ArcGIS.bundle */,
-				0F7510A01A453C93005AA052 /* AppDelegate.swift */,
-				0F7510AA1A453C93005AA052 /* Images.xcassets */,
-				0F7510AC1A453C93005AA052 /* LaunchScreen.xib */,
-				0F7510CB1A453CE5005AA052 /* Main.storyboard */,
-				0F7510DA1A453F32005AA052 /* RouteViewController.h */,
-				0F7510DB1A453F32005AA052 /* RouteViewController.m */,
-				0F7510CD1A453CE5005AA052 /* MainViewController.swift */,
-				0F7510CE1A453CE5005AA052 /* OnboardViewController.swift */,
-				0F75109E1A453C93005AA052 /* Supporting Files */,
-				0F7510D31A453DA2005AA052 /* Crouded-Bridging-Header.h */,
-			);
-			path = Crouded;
-			sourceTree = "<group>";
-		};
-		0F75109E1A453C93005AA052 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0F75109F1A453C93005AA052 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0F7510B61A453C93005AA052 /* CroudedTests */ = {
-			isa = PBXGroup;
-			children = (
-				0F7510B91A453C93005AA052 /* CroudedTests.swift */,
-				0F7510B71A453C93005AA052 /* Supporting Files */,
-			);
-			path = CroudedTests;
-			sourceTree = "<group>";
-		};
-		0F7510B71A453C93005AA052 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0F7510B81A453C93005AA052 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		32DFAADF1A45486600ECB97A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				32DFAAD61A45482D00ECB97A /* User.h */,
-				32DFAAD71A45482D00ECB97A /* User.m */,
-				32DFAAD91A45484600ECB97A /* Incentives.h */,
-				32DFAADA1A45484600ECB97A /* Incentives.m */,
-				32DFAADC1A45485E00ECB97A /* Stats.h */,
-				32DFAADD1A45485E00ECB97A /* Stats.m */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		0F75109A1A453C93005AA052 /* Crouded */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0F7510BD1A453C93005AA052 /* Build configuration list for PBXNativeTarget "Crouded" */;
-			buildPhases = (
-				0F7510971A453C93005AA052 /* Sources */,
-				0F7510981A453C93005AA052 /* Frameworks */,
-				0F7510991A453C93005AA052 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Crouded;
-			productName = Crouded;
-			productReference = 0F75109B1A453C93005AA052 /* Crouded.app */;
-			productType = "com.apple.product-type.application";
-		};
-		0F7510B21A453C93005AA052 /* CroudedTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0F7510C01A453C93005AA052 /* Build configuration list for PBXNativeTarget "CroudedTests" */;
-			buildPhases = (
-				0F7510AF1A453C93005AA052 /* Sources */,
-				0F7510B01A453C93005AA052 /* Frameworks */,
-				0F7510B11A453C93005AA052 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0F7510B51A453C93005AA052 /* PBXTargetDependency */,
-			);
-			name = CroudedTests;
-			productName = CroudedTests;
-			productReference = 0F7510B31A453C93005AA052 /* CroudedTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		0F7510931A453C93005AA052 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "App Builders Inc";
-				TargetAttributes = {
-					0F75109A1A453C93005AA052 = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					0F7510B21A453C93005AA052 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 0F75109A1A453C93005AA052;
-					};
-				};
-			};
-			buildConfigurationList = 0F7510961A453C93005AA052 /* Build configuration list for PBXProject "Crouded" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 0F7510921A453C93005AA052;
-			productRefGroup = 0F75109C1A453C93005AA052 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				0F75109A1A453C93005AA052 /* Crouded */,
-				0F7510B21A453C93005AA052 /* CroudedTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		0F7510991A453C93005AA052 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0F7510CF1A453CE5005AA052 /* Main.storyboard in Resources */,
-				0F7510AE1A453C93005AA052 /* LaunchScreen.xib in Resources */,
-				32DFAAD31A45449D00ECB97A /* ArcGIS.bundle in Resources */,
-				0F7510AB1A453C93005AA052 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F7510B11A453C93005AA052 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		0F7510971A453C93005AA052 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0F7510D21A453CE5005AA052 /* OnboardViewController.swift in Sources */,
-				0F7510A11A453C93005AA052 /* AppDelegate.swift in Sources */,
-				32DFAAD81A45482D00ECB97A /* User.m in Sources */,
-				32DFAADB1A45484600ECB97A /* Incentives.m in Sources */,
-				32DFAADE1A45485E00ECB97A /* Stats.m in Sources */,
-				0F7510DC1A453F32005AA052 /* RouteViewController.m in Sources */,
-				0F7510D11A453CE5005AA052 /* MainViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F7510AF1A453C93005AA052 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0F7510BA1A453C93005AA052 /* CroudedTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0F7510B51A453C93005AA052 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0F75109A1A453C93005AA052 /* Crouded */;
-			targetProxy = 0F7510B41A453C93005AA052 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		0F7510AC1A453C93005AA052 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0F7510AD1A453C93005AA052 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		0F7510BB1A453C93005AA052 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS/";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					ArcGIS,
-					"-l",
-					"c++",
-				);
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		0F7510BC1A453C93005AA052 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS/";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					ArcGIS,
-					"-l",
-					"c++",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		0F7510BE1A453C93005AA052 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = Crouded/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Crouded/Crouded-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		0F7510BF1A453C93005AA052 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = Crouded/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Crouded/Crouded-Bridging-Header.h";
-			};
-			name = Release;
-		};
-		0F7510C11A453C93005AA052 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CroudedTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Crouded.app/Crouded";
-			};
-			name = Debug;
-		};
-		0F7510C21A453C93005AA052 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CroudedTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Crouded.app/Crouded";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		0F7510961A453C93005AA052 /* Build configuration list for PBXProject "Crouded" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0F7510BB1A453C93005AA052 /* Debug */,
-				0F7510BC1A453C93005AA052 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0F7510BD1A453C93005AA052 /* Build configuration list for PBXNativeTarget "Crouded" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0F7510BE1A453C93005AA052 /* Debug */,
-				0F7510BF1A453C93005AA052 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0F7510C01A453C93005AA052 /* Build configuration list for PBXNativeTarget "CroudedTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0F7510C11A453C93005AA052 /* Debug */,
-				0F7510C21A453C93005AA052 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 0F7510931A453C93005AA052 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>0F7510921A453C93005AA052</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0F75109D1A453C93005AA052</string>
+				<string>0F7510B61A453C93005AA052</string>
+				<string>0F75109C1A453C93005AA052</string>
+				<string>BD99171A6D42D5FE77D6F7A7</string>
+				<string>B0EF4400796E7663A624897C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510931A453C93005AA052</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0610</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>App Builders Inc</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>0F75109A1A453C93005AA052</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.1.1</string>
+					</dict>
+					<key>0F7510B21A453C93005AA052</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.1.1</string>
+						<key>TestTargetID</key>
+						<string>0F75109A1A453C93005AA052</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>0F7510961A453C93005AA052</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>0F7510921A453C93005AA052</string>
+			<key>productRefGroup</key>
+			<string>0F75109C1A453C93005AA052</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>0F75109A1A453C93005AA052</string>
+				<string>0F7510B21A453C93005AA052</string>
+			</array>
+		</dict>
+		<key>0F7510961A453C93005AA052</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>0F7510BB1A453C93005AA052</string>
+				<string>0F7510BC1A453C93005AA052</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>0F7510971A453C93005AA052</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>0F7510D21A453CE5005AA052</string>
+				<string>0F7510A11A453C93005AA052</string>
+				<string>32DFAAD81A45482D00ECB97A</string>
+				<string>32DFAADB1A45484600ECB97A</string>
+				<string>32DFAADE1A45485E00ECB97A</string>
+				<string>0F7510DC1A453F32005AA052</string>
+				<string>0F7510D11A453CE5005AA052</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0F7510981A453C93005AA052</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>C0E92E83D5E0F09CEE5FBF0B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0F7510991A453C93005AA052</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>0F7510CF1A453CE5005AA052</string>
+				<string>0F7510AE1A453C93005AA052</string>
+				<string>32DFAAD31A45449D00ECB97A</string>
+				<string>0F7510AB1A453C93005AA052</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0F75109A1A453C93005AA052</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>0F7510BD1A453C93005AA052</string>
+			<key>buildPhases</key>
+			<array>
+				<string>E8FFFAEC27732E297A4D4DCD</string>
+				<string>0F7510971A453C93005AA052</string>
+				<string>0F7510981A453C93005AA052</string>
+				<string>0F7510991A453C93005AA052</string>
+				<string>FCF53FA6643F43BA579974EF</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Crouded</string>
+			<key>productName</key>
+			<string>Crouded</string>
+			<key>productReference</key>
+			<string>0F75109B1A453C93005AA052</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>0F75109B1A453C93005AA052</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Crouded.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>0F75109C1A453C93005AA052</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0F75109B1A453C93005AA052</string>
+				<string>0F7510B31A453C93005AA052</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F75109D1A453C93005AA052</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>32DFAADF1A45486600ECB97A</string>
+				<string>32DFAAD21A45449D00ECB97A</string>
+				<string>0F7510A01A453C93005AA052</string>
+				<string>0F7510AA1A453C93005AA052</string>
+				<string>0F7510AC1A453C93005AA052</string>
+				<string>0F7510CB1A453CE5005AA052</string>
+				<string>0F7510DA1A453F32005AA052</string>
+				<string>0F7510DB1A453F32005AA052</string>
+				<string>0F7510CD1A453CE5005AA052</string>
+				<string>0F7510CE1A453CE5005AA052</string>
+				<string>0F75109E1A453C93005AA052</string>
+				<string>0F7510D31A453DA2005AA052</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Crouded</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F75109E1A453C93005AA052</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0F75109F1A453C93005AA052</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F75109F1A453C93005AA052</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510A01A453C93005AA052</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510A11A453C93005AA052</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0F7510A01A453C93005AA052</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0F7510AA1A453C93005AA052</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510AB1A453C93005AA052</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0F7510AA1A453C93005AA052</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0F7510AC1A453C93005AA052</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0F7510AD1A453C93005AA052</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510AD1A453C93005AA052</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510AE1A453C93005AA052</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0F7510AC1A453C93005AA052</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0F7510AF1A453C93005AA052</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>0F7510BA1A453C93005AA052</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0F7510B01A453C93005AA052</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0F7510B11A453C93005AA052</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0F7510B21A453C93005AA052</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>0F7510C01A453C93005AA052</string>
+			<key>buildPhases</key>
+			<array>
+				<string>0F7510AF1A453C93005AA052</string>
+				<string>0F7510B01A453C93005AA052</string>
+				<string>0F7510B11A453C93005AA052</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>0F7510B51A453C93005AA052</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>CroudedTests</string>
+			<key>productName</key>
+			<string>CroudedTests</string>
+			<key>productReference</key>
+			<string>0F7510B31A453C93005AA052</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>0F7510B31A453C93005AA052</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>CroudedTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>0F7510B41A453C93005AA052</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>0F7510931A453C93005AA052</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>0F75109A1A453C93005AA052</string>
+			<key>remoteInfo</key>
+			<string>Crouded</string>
+		</dict>
+		<key>0F7510B51A453C93005AA052</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>0F75109A1A453C93005AA052</string>
+			<key>targetProxy</key>
+			<string>0F7510B41A453C93005AA052</string>
+		</dict>
+		<key>0F7510B61A453C93005AA052</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0F7510B91A453C93005AA052</string>
+				<string>0F7510B71A453C93005AA052</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>CroudedTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510B71A453C93005AA052</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0F7510B81A453C93005AA052</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510B81A453C93005AA052</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510B91A453C93005AA052</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CroudedTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510BA1A453C93005AA052</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0F7510B91A453C93005AA052</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0F7510BB1A453C93005AA052</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<string>$(HOME)/Library/SDKs/ArcGIS/iOS/</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.1</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<array>
+					<string>-ObjC</string>
+					<string>-framework</string>
+					<string>ArcGIS</string>
+					<string>-l</string>
+					<string>c++</string>
+				</array>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>0F7510BC1A453C93005AA052</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<string>$(HOME)/Library/SDKs/ArcGIS/iOS/</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.1</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>OTHER_LDFLAGS</key>
+				<array>
+					<string>-ObjC</string>
+					<string>-framework</string>
+					<string>ArcGIS</string>
+					<string>-l</string>
+					<string>c++</string>
+				</array>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>0F7510BD1A453C93005AA052</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>0F7510BE1A453C93005AA052</string>
+				<string>0F7510BF1A453C93005AA052</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>0F7510BE1A453C93005AA052</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>C249398942C316E91D812403</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Crouded/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Crouded/Crouded-Bridging-Header.h</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>0F7510BF1A453C93005AA052</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>E2B0BFBED3BAD6DB69A4C9F0</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Crouded/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Crouded/Crouded-Bridging-Header.h</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>0F7510C01A453C93005AA052</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>0F7510C11A453C93005AA052</string>
+				<string>0F7510C21A453C93005AA052</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>0F7510C11A453C93005AA052</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>CroudedTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Crouded.app/Crouded</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>0F7510C21A453C93005AA052</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>CroudedTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Crouded.app/Crouded</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>0F7510CB1A453CE5005AA052</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>path</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510CD1A453CE5005AA052</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MainViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510CE1A453CE5005AA052</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>OnboardViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510CF1A453CE5005AA052</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0F7510CB1A453CE5005AA052</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0F7510D11A453CE5005AA052</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0F7510CD1A453CE5005AA052</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0F7510D21A453CE5005AA052</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0F7510CE1A453CE5005AA052</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0F7510D31A453DA2005AA052</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Crouded-Bridging-Header.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510DA1A453F32005AA052</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>RouteViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510DB1A453F32005AA052</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>RouteViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F7510DC1A453F32005AA052</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0F7510DB1A453F32005AA052</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>32DFAAD21A45449D00ECB97A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.plug-in</string>
+			<key>name</key>
+			<string>ArcGIS.bundle</string>
+			<key>path</key>
+			<string>../../Library/SDKs/ArcGIS/iOS/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>32DFAAD31A45449D00ECB97A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>32DFAAD21A45449D00ECB97A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>32DFAAD61A45482D00ECB97A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>User.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>32DFAAD71A45482D00ECB97A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>User.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>32DFAAD81A45482D00ECB97A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>32DFAAD71A45482D00ECB97A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>32DFAAD91A45484600ECB97A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Incentives.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>32DFAADA1A45484600ECB97A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Incentives.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>32DFAADB1A45484600ECB97A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>32DFAADA1A45484600ECB97A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>32DFAADC1A45485E00ECB97A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Stats.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>32DFAADD1A45485E00ECB97A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Stats.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>32DFAADE1A45485E00ECB97A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>32DFAADD1A45485E00ECB97A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>32DFAADF1A45486600ECB97A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>32DFAAD61A45482D00ECB97A</string>
+				<string>32DFAAD71A45482D00ECB97A</string>
+				<string>32DFAAD91A45484600ECB97A</string>
+				<string>32DFAADA1A45484600ECB97A</string>
+				<string>32DFAADC1A45485E00ECB97A</string>
+				<string>32DFAADD1A45485E00ECB97A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Models</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B0EF4400796E7663A624897C</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>D67E6C3404EBF1C94C5B086B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BD99171A6D42D5FE77D6F7A7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>C249398942C316E91D812403</string>
+				<string>E2B0BFBED3BAD6DB69A4C9F0</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C0E92E83D5E0F09CEE5FBF0B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D67E6C3404EBF1C94C5B086B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>C249398942C316E91D812403</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Crouded.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Crouded/Pods-Crouded.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D67E6C3404EBF1C94C5B086B</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-Crouded.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>E2B0BFBED3BAD6DB69A4C9F0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Crouded.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Crouded/Pods-Crouded.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E8FFFAEC27732E297A4D4DCD</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>FCF53FA6643F43BA579974EF</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Crouded/Pods-Crouded-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>0F7510931A453C93005AA052</string>
+</dict>
+</plist>
