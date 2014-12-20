@@ -95,6 +95,7 @@ static User* sharedUser = nil;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:nil forKey:UserDefaultsEmailKey];
     [defaults synchronize];
+    sharedUser = nil;
 }
 
 - (BOOL)hasValidCommute {
