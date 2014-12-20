@@ -17,7 +17,12 @@ extension User {
                 let totalTimeSaved = data["total_time_saved"]! as UInt
                 let registrationDate = NSDate(timeIntervalSince1970: data["registration_date"]! as Double)
                 let stats = Stats(points: points, timeSaved: timeSaved, totalTimeSaved: totalTimeSaved, registrationDate: registrationDate)
-                let user = User(email: email, stats: stats)
+                
+                
+                let homeLocation = data["home_location"]! as [String: Double];
+                let workLocation = data["work_location"]! as [String: Double];
+                
+                let user = User(email: email, stats: stats, home: homeLocation, work: workLocation, locked: false)
                 return success(user)
             },
             failure: failure

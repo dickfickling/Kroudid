@@ -27,17 +27,14 @@ static User* sharedUser = nil;
 
 @implementation User
 
-- (id)initWithEmail:(NSString *)email stats:(Stats *)stats {
-    return [self initWithEmail:email locked:false stats:stats];
-}
-
 - (void)setLocked:(bool)locked {
     _locked = locked;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:locked forKey:UserDefaultsLockedKey];
 }
 
-- (id)initWithEmail:(NSString*)email locked:(BOOL)locked  stats: (Stats*)stats {
+- (id)initWithEmail:(NSString *)email stats:(Stats*)stats home:(NSDictionary*)home work:(NSDictionary*)work locked:(BOOL)locked
+{
     self = [super init];
     if (self) {
         _email = email;
@@ -70,7 +67,7 @@ static User* sharedUser = nil;
     Stats* stats = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults dataForKey:UserDefaultsStatsKey]];
     
     if (email) {
-        sharedUser = [[User alloc] initWithEmail:email locked:locked stats:stats];
+        sharedUser = [[User alloc] initWithEmail:email stats:stats home:nil work:nil locked:locked];
         return sharedUser;
     }
     

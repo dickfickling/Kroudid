@@ -31,8 +31,7 @@
 @property (nonatomic, strong) Incentives* myIncentives;
 
 // Will overwrite any previous user on device
-- (id)initWithEmail:(NSString *)email stats:(Stats*)stats;
-- (id)initWithEmail:(NSString *)email locked:(BOOL)locked stats:(Stats*)stats;
+- (id)initWithEmail:(NSString *)email stats:(Stats*)stats home:(NSDictionary*)home work:(NSDictionary*)work locked:(BOOL)locked;
 
 // Can return nil if there is no stored user on device
 + (User*)storedUser;

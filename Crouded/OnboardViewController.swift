@@ -26,6 +26,8 @@ class OnboardViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+        User.signOutStoredUser()
+        
         if User.storedUser() == nil {
             UIView.animateWithDuration(0.5, animations: {
                 self.emailTextField.alpha = 1.0
