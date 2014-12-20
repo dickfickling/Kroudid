@@ -14,6 +14,7 @@
 @interface RouteViewController ()
 
 @property (nonatomic, strong) AGSMapView* mapView;
+@property (nonatomic, strong) AGSGraphicsLayer* commuteLayer;
 @property (nonatomic, strong) User* user;
 
 @property (nonatomic, strong) Commute* commute;
@@ -41,15 +42,50 @@
     
     [self enableGps:AGSLocationDisplayAutoPanModeDefault];
     
+    _commuteLayer = [AGSGraphicsLayer graphicsLayer];
+    [self.mapView addMapLayer:self.commuteLayer];
+    
+    [self findTypicalCommute];
+    
+}
+
+- (void)findTypicalCommute
+{
     NSString* address1 = @"1020 W. Fern Ave Redlands, CA 92373";
-    NSString* address2 = @"3663 Canyon Crest Ave Riverside, CA 92507";
+    NSString* address2 = @"5015 La Mart Riverside, CA 92507";
     
+    __weak RouteViewController* weakSelf = self;
     _commute = [[Commute alloc] initWithAddress:address1
-                                                 address2:address2
-                                               completion:^(NSError* e) {
-                                                   NSLog(@"Something!");
-                                               }];
+                                       address2:address2
+                                     completion:^(NSError* e) {
+                                         [weakSelf drawCommute];
+                                     }];
+}
+
+- (void)drawCommute
+{
+    if (!self.commute || !self.commute.point1 || !self.commute.point2) {
+        [self findTypicalCommute];
+    }
     
+    AGSGeometryEngine * ge = [AGSGeometryEngine defaultGeometryEngine];
+    AGSPoint* p1 = (AGSPoint*)[ge projectGeometry:self.commute.point1 toSpatialReference:self.mapView.spatialReference];
+    AGSPoint* p2 = (AGSPoint*)[ge projectGeometry:self.commute.point2 toSpatialReference:self.mapView.spatialReference];
+    
+    AGSSimpleMarkerSymbol* sms1 = [AGSSimpleMarkerSymbol simpleMarkerSymbol];
+    sms1.color = [UIColor redColor];
+    
+    AGSSimpleMarkerSymbol* sms2 = [AGSSimpleMarkerSymbol simpleMarkerSymbol];
+    sms2.color = [UIColor greenColor];
+    
+    AGSGraphic* p1Graphic = [AGSGraphic graphicWithGeometry:p1
+                                                     symbol:sms1 attributes:nil];
+    
+    
+    AGSGraphic* p2Graphic = [AGSGraphic graphicWithGeometry:p2
+                                                     symbol:sms2 attributes:nil];
+    
+    [self.commuteLayer addGraphics:@[p1Graphic, p2Graphic]];
     
 }
 

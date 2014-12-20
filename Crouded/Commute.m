@@ -13,7 +13,8 @@
 @property (nonatomic, copy) NSString* address1;
 @property (nonatomic, copy) NSString* address2;
 
-@property (nonatomic, strong) AGSLocator* locator;
+@property (nonatomic, strong) AGSLocator*     locator;
+@property (nonatomic, strong) AGSLocatorInfo* locatorInfo;
 
 @property (nonatomic, strong) void (^completion)(NSError*);
 
@@ -29,10 +30,11 @@
         _address2 = address2;
         _completion = completion;
         
-        NSURL* url = [NSURL URLWithString: @"http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Locators/ESRI_Geocode_USA/GeocodeServer"];
+        NSURL* url = [NSURL URLWithString: @"http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"];
         
         _locator = [[AGSLocator alloc] initWithURL: url];
         _locator.delegate = self;
+        
         [_locator fetchLocatorInfo];
     }
     
@@ -49,31 +51,50 @@
     NSLog(@"End commute");
 }
 
-
-#pragma mark -
-#pragma mark AGSLocatorDelegate
-- (void)locator:(AGSLocator*)locator operation:(NSOperation*)op didFetchLocatorInfo:(AGSLocatorInfo*)locatorInfo
+- (void)fetchAddressForString:(NSString*)address
 {
     AGSLocationsForAddressParameters* params = [[AGSLocationsForAddressParameters alloc] init];
-    NSString *currentLocaleString = [[NSLocale currentLocale] objectForKey:NSLocaleLanguageCode];
-    NSDictionary *address = [NSDictionary dictionaryWithObjectsAndKeys:self.address1, @"address",
-                             currentLocaleString, @"localeCode", nil];
+    NSDictionary *addressDict = [NSDictionary dictionaryWithObjectsAndKeys:address, self.locatorInfo.singleLineAddressField.name,nil];
     
-    params.address              = address;
+    params.address              = addressDict;
     params.outFields            = @[@"*"];
     params.outSpatialReference  = [AGSSpatialReference wgs84SpatialReference];
-    [locator locationsForAddressWithParameters:params];
+    [_locator locationsForAddressWithParameters:params];
+}
+
+
+- (void)locator:(AGSLocator *)locator operation:(NSOperation *)op didFetchLocatorInfo:(AGSLocatorInfo *)locatorInfo {
+    
+    self.locatorInfo = locatorInfo;
+    
+    if (self.point1) {
+        [self fetchAddressForString:self.address2];
+    }
+    else {
+        [self fetchAddressForString:self.address1];
+    }
 }
 
 - (void)locator:(AGSLocator *)locator operation:(NSOperation*)op didFindLocationsForAddress:(NSArray *)candidates
 {
-    NSLog(@"HERE!");
+    AGSAddressCandidate* ac = [candidates objectAtIndex:0];
+    
+    if (self.point1) {
+        
+        _point2 = [ac.location copy];
+        
+        if (self.completion) {
+            self.completion(nil);
+        }
+        
+    }
+    // Working in first address
+    else {
+        _point1 = [ac.location copy];
+        [self fetchAddressForString:self.address2];
+    }
 }
 
-- (void)locator:(AGSLocator *)locator operation:(NSOperation *)op didFailLocationsForAddress:(NSError *)error
-{
-    NSLog(@"HERE");
-}
 
 
 @end

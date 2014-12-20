@@ -11,8 +11,8 @@
 
 @interface Commute : NSObject
 
-@property (nonatomic, strong) AGSPoint* point1;
-@property (nonatomic, strong) AGSPoint* point2;
+@property (nonatomic, copy) AGSPoint* point1;
+@property (nonatomic, copy) AGSPoint* point2;
 
 @property (nonatomic, strong) NSDate* startDate;
 @property (nonatomic, strong) NSDate* endDate;
