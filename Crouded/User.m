@@ -42,12 +42,27 @@ static User* sharedUser = nil;
         _myStats = stats;
         _myIncentives = [[Incentives alloc] initWithTimes:[[NSArray alloc] init]];
         
+        if (home && work) {
+            _homeLocation  = [AGSPoint pointWithX:[[home objectForKey:@"longitude"] doubleValue]
+                                                     y:[[home objectForKey:@"latitude"] doubleValue]
+                                      spatialReference:[AGSSpatialReference wgs84SpatialReference]];
+            
+            _workLocation = [AGSPoint pointWithX:[[work objectForKey:@"longitude"] doubleValue]
+                                                     y:[[work objectForKey:@"latitude"] doubleValue]
+                                      spatialReference:[AGSSpatialReference wgs84SpatialReference]];
+            
+            
+            _myCommute = [[Commute alloc] initWithPoint1:self.homeLocation point2:self.workLocation];
+        }
+        
         // Store email and locked
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:email forKey:UserDefaultsEmailKey];
         [defaults setBool:locked forKey:UserDefaultsLockedKey];
         [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:stats] forKey:UserDefaultsStatsKey];
         [defaults synchronize];
+        
+        sharedUser = self;
     }
     
     return self;

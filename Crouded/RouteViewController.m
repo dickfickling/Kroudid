@@ -60,8 +60,6 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     
     mapView.touchDelegate = self;
     
-    [self enableGps:AGSLocationDisplayAutoPanModeDefault];
-    
     _fencesLayer = [AGSGraphicsLayer graphicsLayer];
     [mapView addMapLayer:self.fencesLayer];
     
@@ -88,19 +86,34 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     _toolbar = toolbar;
     [self.view addSubview:toolbar];
     
-    // create auto layout constraints for toolbar and content views
     NSDictionariesOfMetricsAndVariables(nil, mapView, toolbar, _homeTextField, _workTextField);
     
     AddConstraints(NSLConstraints(@"H:|[mapView]|"));
     AddConstraints(NSLConstraints(@"H:|[toolbar]|"));
-    AddConstraints(NSLConstraints(@"H:|-5-[_homeTextField]-5-|"));
-    AddConstraints(NSLConstraints(@"H:|-5-[_workTextField]-5-|"));
     AddConstraints(NSLConstraints(@"V:|-20-[toolbar][mapView]|"));
-    AddConstraints(NSLConstraints(@"V:[toolbar]-5-[_homeTextField(35)]-5-[_workTextField(35)]"));
+    
+    if (![[User storedUser] hasValidCommute]) {
+        AddConstraints(NSLConstraints(@"H:|-5-[_homeTextField]-5-|"));
+        AddConstraints(NSLConstraints(@"H:|-5-[_workTextField]-5-|"));
+        AddConstraints(NSLConstraints(@"V:[toolbar]-5-[_homeTextField(35)]-5-[_workTextField(35)]"));
+    }
     
     [self.view addConstraints:constraints];
     
     [self prepopulateTextFields];
+    [self populateToolbar];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if ([[User storedUser] hasValidCommute]) {
+        [self drawCommute];
+    }
+    else {
+        [self enableGps:AGSLocationDisplayAutoPanModeDefault];
+        [self prepopulateTextFields];
+    }
+    
     [self populateToolbar];
 }
 
