@@ -4,3 +4,5 @@
 #import "User.h"
 #import "Incentives.h"
 #import "Stats.h"
+#import "AFNetworking.h"
+#import "MBProgressHUD.h"

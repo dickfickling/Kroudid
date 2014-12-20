@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <ArcGIS/ArcGIS.h>
 
+#define UserDefaultsEmailKey @"UserDefaultsEmail"
+#define UserDefaultsLockedKey @"UserDefaultsLocked"
+
 @class Stats;
 @class Commute;
 @class Incentives;
