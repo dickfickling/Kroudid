@@ -37,8 +37,13 @@ class OnboardViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(sender: AnyObject) {
-        var user = User(email: self.emailTextField.text)
-        self.performSegueWithIdentifier("mainViewSegue", sender: self)
+        let email: NSString = self.emailTextField.text
+        if email.length > 0 {
+            var user = User(email: self.emailTextField.text)
+            self.performSegueWithIdentifier("mainViewSegue", sender: self)
+        } else {
+            let alert = UIAlertView(title: "Enter Email", message: "Please enter your email", delegate: nil, cancelButtonTitle: "OK")
+        }
     }
 
 }

@@ -8,12 +8,28 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+    
+    var pageViewController: UIPageViewController!
+    var statsViewControllers: [UIViewController] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.statsViewControllers = []
+        
+        var timeSavedViewController = self.storyboard!.instantiateViewControllerWithIdentifier("timeSavedViewController") as UIViewController
+        self.statsViewControllers.append(timeSavedViewController)
+        
+        var pointsViewController = self.storyboard!.instantiateViewControllerWithIdentifier("pointsViewController") as UIViewController
+        self.statsViewControllers.append(pointsViewController)
+        
+        var totalTimeSavedViewController = self.storyboard!.instantiateViewControllerWithIdentifier("totalTimeSavedViewController") as UIViewController
+        self.statsViewControllers.append(totalTimeSavedViewController)
+        
+        self.pageViewController.dataSource = self
+        self.pageViewController.delegate = self
+        self.pageViewController.setViewControllers([self.statsViewControllers[1]], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +37,49 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(animated: Bool) {
+        if User.storedUser().hasValidCommute() {
+            
+        } else {
+            //let alert = UIAlertView(title: "Set your commute", message: "Before you can use Crouded, you have to tell us a bit about your commute.", delegate: self, cancelButtonTitle: "OK")
+            //alert.show()
+        }
     }
-    */
-
+    
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
+        self.performSegueWithIdentifier("setCommuteSegue", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "embedSegue" {
+            self.pageViewController = segue.destinationViewController as UIPageViewController
+        }
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        let index = find(self.statsViewControllers, viewController)!
+        if index == self.statsViewControllers.count - 1 {
+            return nil
+        } else {
+            return self.statsViewControllers[index+1]
+        }
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+        let index = find(self.statsViewControllers, viewController)!
+        if index == 0 {
+            return nil
+        } else {
+            return self.statsViewControllers[index-1]
+        }
+    }
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return 3
+    }
+    
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return pageViewController.viewControllers.count > 0 ? find(self.statsViewControllers, pageViewController.viewControllers[0] as UIViewController)! : 0
+    }
+    
+    
 }
