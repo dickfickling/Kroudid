@@ -42,14 +42,15 @@ typedef enum{
     return self;
 }
 
+#define kLocationPath @"location"
 - (void)startCommute
 {
-    NSLog(@"Start commute");
+    [self.gps addObserver:self forKeyPath:kLocationPath options:0 context:nil];
 }
 
 - (void)endCommuteAndReachedDestination:(BOOL)reached
 {
-    NSLog(@"End commute");
+    [self.gps removeObserver:self forKeyPath:kLocationPath];
 }
 
 #define kBufferFactor 200
@@ -204,24 +205,6 @@ typedef enum{
     }
 
     return s;
-}
-
-#define kLocationPath @"location"
-
-- (void)setGps:(AGSLocationDisplay *)gps {
-    
-    if (gps == _gps) return;  // no change
-    
-    if (gps) {
-        // add observers to new GPS
-        [gps addObserver:self forKeyPath:kLocationPath options:0 context:nil];
-    }
-    
-    if (_gps) {
-        [_gps removeObserver:self forKeyPath:kLocationPath];
-    }
-
-    _gps = gps;
 }
 
 #pragma mark -

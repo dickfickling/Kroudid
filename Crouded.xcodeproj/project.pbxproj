@@ -28,6 +28,7 @@
 		32DFAADE1A45485E00ECB97A /* Stats.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAADD1A45485E00ECB97A /* Stats.m */; };
 		32DFAAE91A45584200ECB97A /* Commute.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAAE81A45584200ECB97A /* Commute.m */; };
 		32DFAAEC1A46121400ECB97A /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAAEB1A46121400ECB97A /* UIColor+Additions.m */; };
+		32DFAAEF1A461D2400ECB97A /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAAEE1A461D2400ECB97A /* MapView.m */; };
 		C0E92E83D5E0F09CEE5FBF0B /* libPods-Crouded.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D67E6C3404EBF1C94C5B086B /* libPods-Crouded.a */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,8 @@
 		32DFAAE81A45584200ECB97A /* Commute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Commute.m; sourceTree = "<group>"; };
 		32DFAAEA1A46121400ECB97A /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
 		32DFAAEB1A46121400ECB97A /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
+		32DFAAED1A461D2400ECB97A /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		32DFAAEE1A461D2400ECB97A /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		C249398942C316E91D812403 /* Pods-Crouded.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crouded.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crouded/Pods-Crouded.debug.xcconfig"; sourceTree = "<group>"; };
 		D67E6C3404EBF1C94C5B086B /* libPods-Crouded.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Crouded.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B0BFBED3BAD6DB69A4C9F0 /* Pods-Crouded.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crouded.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crouded/Pods-Crouded.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				0F7510D31A453DA2005AA052 /* Crouded-Bridging-Header.h */,
 				32DFAAEA1A46121400ECB97A /* UIColor+Additions.h */,
 				32DFAAEB1A46121400ECB97A /* UIColor+Additions.m */,
+				32DFAAED1A461D2400ECB97A /* MapView.h */,
+				32DFAAEE1A461D2400ECB97A /* MapView.m */,
 			);
 			path = Crouded;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				0FA1EE061A460739001E8ED6 /* User-extension.swift in Sources */,
 				0FA1EE0D1A46105D001E8ED6 /* BorderedButton.swift in Sources */,
 				32DFAAD81A45482D00ECB97A /* User.m in Sources */,
+				32DFAAEF1A461D2400ECB97A /* MapView.m in Sources */,
 				32DFAAEC1A46121400ECB97A /* UIColor+Additions.m in Sources */,
 				0FA1EE0A1A460800001E8ED6 /* APIManager.swift in Sources */,
 				32DFAADB1A45484600ECB97A /* Incentives.m in Sources */,

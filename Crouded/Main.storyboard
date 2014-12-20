@@ -102,8 +102,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zR-op-0gw">
-                                <rect key="frame" x="42" y="325" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="42" y="325" width="90" height="30"/>
+                                <state key="normal" title="My commute">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>

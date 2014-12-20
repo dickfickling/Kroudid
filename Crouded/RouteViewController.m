@@ -10,6 +10,7 @@
 #import "User.h"
 #import "Commute.h"
 #import "UIColor+Additions.h"
+#import "MapView.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <ArcGIS/ArcGIS.h>
 
@@ -28,7 +29,6 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
 
 @interface RouteViewController () <AGSMapViewTouchDelegate>
 
-@property (nonatomic, strong) AGSMapView* mapView;
 @property (nonatomic, strong) UIToolbar* toolbar;
 @property (nonatomic, strong) UIBarButtonItem* findButton;
 @property (nonatomic, strong) UITextField* homeTextField;
@@ -48,27 +48,25 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    AGSMapView* mv = [[AGSMapView alloc] initWithFrame:CGRectZero];
-    mv.translatesAutoresizingMaskIntoConstraints = NO;
+    MapView* mapView = [MapView sharedMapView];
+    mapView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    _mapView = mv;
-    
-    [self.view addSubview:_mapView];
+    [self.view addSubview:mapView];
     
     //Add a basemap tiled layer
     NSURL* url = [NSURL URLWithString:@"http://services.arcgisonline.com/arcgis/rest/services/NatGeo_World_Map/MapServer"];
     AGSTiledMapServiceLayer *tiledLayer = [AGSTiledMapServiceLayer tiledMapServiceLayerWithURL:url];
-    [self.mapView addMapLayer:tiledLayer withName:@"Basemap Tiled Layer"];
+    [mapView addMapLayer:tiledLayer withName:@"Basemap Tiled Layer"];
     
-    self.mapView.touchDelegate = self;
+    mapView.touchDelegate = self;
     
     [self enableGps:AGSLocationDisplayAutoPanModeDefault];
     
     _fencesLayer = [AGSGraphicsLayer graphicsLayer];
-    [self.mapView addMapLayer:self.fencesLayer];
+    [mapView addMapLayer:self.fencesLayer];
     
     _commuteLayer = [AGSGraphicsLayer graphicsLayer];
-    [self.mapView addMapLayer:self.commuteLayer];
+    [mapView addMapLayer:self.commuteLayer];
     
     UIToolbar* toolbar = [[UIToolbar alloc] init];
     toolbar.translatesAutoresizingMaskIntoConstraints = NO;
@@ -92,13 +90,13 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     [self.view addSubview:toolbar];
     
     // create auto layout constraints for toolbar and content views
-    NSDictionariesOfMetricsAndVariables(nil, mv, toolbar, _homeTextField, _workTextField);
+    NSDictionariesOfMetricsAndVariables(nil, mapView, toolbar, _homeTextField, _workTextField);
     
-    AddConstraints(NSLConstraints(@"H:|[mv]|"));
+    AddConstraints(NSLConstraints(@"H:|[mapView]|"));
     AddConstraints(NSLConstraints(@"H:|[toolbar]|"));
     AddConstraints(NSLConstraints(@"H:|-5-[_homeTextField]-5-|"));
     AddConstraints(NSLConstraints(@"H:|-5-[_workTextField]-5-|"));
-    AddConstraints(NSLConstraints(@"V:|-20-[toolbar][mv]|"));
+    AddConstraints(NSLConstraints(@"V:|-20-[toolbar][mapView]|"));
     AddConstraints(NSLConstraints(@"V:[toolbar]-5-[_homeTextField(35)]-5-[_workTextField(35)]"));
     
     [self.view addConstraints:constraints];
@@ -161,7 +159,7 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
         [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
         
         if (!e) {
-            [User storedUser].myCommute.gps = weakSelf.mapView.locationDisplay;
+            [User storedUser].myCommute.gps = [MapView sharedMapView].locationDisplay;
         }
         
         [weakSelf drawCommute];
@@ -202,10 +200,12 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     
     [self.fencesLayer addGraphics:@[fence1, fence2]];
     
+    MapView* mv = [MapView sharedMapView];
     //  Add home and work locations to maps
     AGSGeometryEngine * ge = [AGSGeometryEngine defaultGeometryEngine];
-    AGSPoint* p1 = (AGSPoint*)[ge projectGeometry:user.homeLocation toSpatialReference:self.mapView.spatialReference];
-    AGSPoint* p2 = (AGSPoint*)[ge projectGeometry:user.workLocation toSpatialReference:self.mapView.spatialReference];
+    AGSPoint* p1 = (AGSPoint*)[ge projectGeometry:user.homeLocation
+                               toSpatialReference:mv.spatialReference];
+    AGSPoint* p2 = (AGSPoint*)[ge projectGeometry:user.workLocation toSpatialReference:mv.spatialReference];
     
     AGSSimpleMarkerSymbol* sms1 = [AGSSimpleMarkerSymbol simpleMarkerSymbol];
     sms1.color = [UIColor crowdedBlueColor];
@@ -228,14 +228,14 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     AGSMutableEnvelope* env = [p1.envelope mutableCopy];
     [env unionWithPoint:p2];
     [env expandByFactor:1.5];
-    [self.mapView zoomToEnvelope:env animated:YES];
+    [mv zoomToEnvelope:env animated:YES];
 }
 
 #define kGPSScale 12000
 
 - (void)enableGps:(AGSLocationDisplayAutoPanMode)mode
 {
-    AGSLocationDisplay* gps = self.mapView.locationDisplay;
+    AGSLocationDisplay* gps = [MapView sharedMapView].locationDisplay;
     gps.autoPanMode = mode;
     [gps startDataSource];
 }
