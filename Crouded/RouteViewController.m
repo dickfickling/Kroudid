@@ -11,7 +11,7 @@
 #import "Commute.h"
 #import <ArcGIS/ArcGIS.h>
 
-@interface RouteViewController ()
+@interface RouteViewController () <AGSMapViewTouchDelegate>
 
 @property (nonatomic, strong) AGSMapView* mapView;
 
@@ -41,6 +41,8 @@
     AGSTiledMapServiceLayer *tiledLayer = [AGSTiledMapServiceLayer tiledMapServiceLayerWithURL:url];
     [self.mapView addMapLayer:tiledLayer withName:@"Basemap Tiled Layer"];
     
+    self.mapView.touchDelegate = self;
+    
     [self enableGps:AGSLocationDisplayAutoPanModeDefault];
     
     _fencesLayer = [AGSGraphicsLayer graphicsLayer];
@@ -60,8 +62,8 @@
 
 - (void)findTypicalCommute
 {
-    NSString* address1 = @"1020 W. Fern Ave Redlands, CA 92373";
-    NSString* address2 = @"5015 La Mart Riverside, CA 92507";
+    NSString* address1 = @"10889 N DE ANZA BLVD Cupertino, CA, 95014";
+    NSString* address2 = @"10711 BAXTER AVE LOS ALTOS, CA 94024";
     
     __weak RouteViewController* weakSelf = self;
     [self.user findHomeAddress:address1 workAddress:address2 completion:^(NSError* e) {
@@ -126,7 +128,6 @@
     
     [self.commuteLayer addGraphics:@[p1Graphic, p2Graphic]];
     
-    
     // Zoom to show commute
     AGSMutableEnvelope* env = [p1.envelope mutableCopy];
     [env unionWithPoint:p2];
@@ -141,6 +142,13 @@
     AGSLocationDisplay* gps = self.mapView.locationDisplay;
     gps.autoPanMode = mode;
     [gps startDataSource];
+}
+
+- (void)mapView:(AGSMapView *)mapView didClickAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint features:(NSDictionary *)features
+{
+    AGSGeometryEngine* ge = [AGSGeometryEngine defaultGeometryEngine];
+    AGSPoint* p = (AGSPoint*)[ge projectGeometry:mappoint toSpatialReference:[AGSSpatialReference wgs84SpatialReference]];
+    NSLog(@"x:  %f  y:  %f", p.x, p.y);
 }
 
 @end

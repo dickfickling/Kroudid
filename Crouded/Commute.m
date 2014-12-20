@@ -50,7 +50,7 @@ typedef enum{
     NSLog(@"End commute");
 }
 
-#define kBufferFactor 1000
+#define kBufferFactor 500
 - (AGSGeometry*)p1Geofence
 {
     if (_p1Geofence == nil) {
@@ -196,7 +196,6 @@ typedef enum{
 
 - (void)setGps:(AGSLocationDisplay *)gps {
     
-    /*
     if (gps == _gps) return;  // no change
     
     if (gps) {
@@ -208,7 +207,7 @@ typedef enum{
         [_gps removeObserver:self forKeyPath:kLocationPath];
     }
 
-    _gps = gps;  */
+    _gps = gps;
 }
 
 #pragma mark -
