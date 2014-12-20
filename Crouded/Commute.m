@@ -8,6 +8,7 @@
 
 typedef enum{
     CommuteStateUnknown = 0,
+    CommuteStateNotCommuting,
     CommuteStateAtP1,
     CommuteStateLeftP1,
     CommuteStateAwayP1,
@@ -45,12 +46,19 @@ typedef enum{
 #define kLocationPath @"location"
 - (void)startCommute
 {
+    self.commuteState = CommuteStateUnknown;
     [self.gps addObserver:self forKeyPath:kLocationPath options:0 context:nil];
 }
 
-- (void)endCommuteAndReachedDestination:(BOOL)reached
+- (void)endCommut
 {
     [self.gps removeObserver:self forKeyPath:kLocationPath];
+    self.commuteState = CommuteStateNotCommuting;
+}
+
+- (BOOL)atHomeOrAtWork
+{
+    return ((self.commuteState == CommuteStateAtP1) || (self.commuteState == CommuteStateAtP2));
 }
 
 #define kBufferFactor 200

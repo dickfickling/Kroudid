@@ -169,5 +169,4 @@ static User* sharedUser = nil;
     }
 }
 
-
 @end

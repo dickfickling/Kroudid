@@ -19,8 +19,8 @@ extension User {
                 let stats = Stats(points: points, timeSaved: timeSaved, totalTimeSaved: totalTimeSaved, registrationDate: registrationDate)
                 
                 
-                let homeLocation = data["home_location"] as [String: Double]?
-                let workLocation = data["work_location"] as [String: Double]?
+                let homeLocation = data["home_location"] as? [String: Double]
+                let workLocation = data["work_location"] as? [String: Double]
                 
                 let user = User(email: email, stats: stats, home: homeLocation, work: workLocation, locked: false)
                 return success(user)

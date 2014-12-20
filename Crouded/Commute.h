@@ -29,4 +29,6 @@
 - (void)startCommute;
 - (void)endCommuteAndReachedDestination:(BOOL)reached;
 
+- (BOOL)atHomeOrAtWork;
+
 @end

@@ -37,6 +37,8 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
 @property (nonatomic, strong) AGSGraphicsLayer* fencesLayer;
 @property (nonatomic, strong) AGSGraphicsLayer* commuteLayer;
 
+@property (nonatomic) BOOL creatingCommute;
+
 @end
 
 @implementation RouteViewController
@@ -70,12 +72,12 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     toolbar.translatesAutoresizingMaskIntoConstraints = NO;
     toolbar.barTintColor = [UIColor crowdedBlueColor];
     
-    _homeTextField = [[UITextField alloc] init];
+    _homeTextField = [[UITextField alloc] initWithFrame:CGRectZero];
     _homeTextField.translatesAutoresizingMaskIntoConstraints = NO;
     _homeTextField.placeholder = @"Home address";
     _homeTextField.borderStyle = UITextBorderStyleRoundedRect;
     
-    _workTextField = [[UITextField alloc] init];
+    _workTextField = [[UITextField alloc] initWithFrame:CGRectZero];
     _workTextField.translatesAutoresizingMaskIntoConstraints = NO;
     _workTextField.placeholder = @"Work address";
     _workTextField.borderStyle = UITextBorderStyleRoundedRect;
@@ -99,9 +101,6 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     }
     
     [self.view addConstraints:constraints];
-    
-    [self prepopulateTextFields];
-    [self populateToolbar];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -112,6 +111,7 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     else {
         [self enableGps:AGSLocationDisplayAutoPanModeDefault];
         [self prepopulateTextFields];
+        self.creatingCommute = YES;
     }
     
     [self populateToolbar];
@@ -127,7 +127,12 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
 - (void)findButtonClicked
 {
     if ([[User storedUser] hasValidCommute]) {
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        
+        __weak RouteViewController* weakSelf = self;
+        [[User storedUser] postLocations:^(void){
+                [weakSelf.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+            }
+                                 failure:nil];
     }
     else {
         [self findTypicalCommute];
