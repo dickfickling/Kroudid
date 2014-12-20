@@ -21,4 +21,8 @@ alpha:       1.0]
     return UIColorFromRGB(0x576E91);
 }
 
++ (UIColor*)crowdedRedColor {
+    return UIColorFromRGB(0x576E91);
+}
+
 @end
