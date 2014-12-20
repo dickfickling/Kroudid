@@ -7,11 +7,13 @@
 //
 
 #import "RouteViewController.h"
+#import "User.h"
 #import <ArcGIS/ArcGIS.h>
 
 @interface RouteViewController ()
 
 @property (nonatomic, strong) AGSMapView* mapView;
+@property (nonatomic, strong) User* user;
 
 
 @end
@@ -28,7 +30,6 @@
     _mapView = [[AGSMapView alloc] initWithFrame:self.view.bounds];
     
     [self.view addSubview:_mapView];
-    self.mapView.locationDisplay.startDataSource;
     
     //Add a basemap tiled layer
     NSURL* url = [NSURL URLWithString:@"http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer"];
@@ -36,6 +37,16 @@
     [self.mapView addMapLayer:tiledLayer withName:@"Basemap Tiled Layer"];
     
     // Do any additional setup after loading the view.
+    
+    _user = [User storedUser];
+    if (!self.user) {
+        NSLog(@"No user stored");
+        _user = [[User alloc] initWithEmail:@"sampleuser@gmail.com"];
+    }
+    else {
+        NSLog(@"Found user: %@", self.user.email);
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
