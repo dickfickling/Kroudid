@@ -46,12 +46,12 @@ extension User {
     @objc func postLocations(success: () -> (), failure: (NSError) -> ()) {
         let params = [
             "home_location": [
-                "latitude": self.homeLocation.x,
-                "longitude": self.homeLocation.y
+                "latitude": self.homeLocation.y,
+                "longitude": self.homeLocation.x
             ],
             "work_location": [
-                "latitude": self.workLocation.x,
-                "longitude": self.homeLocation.y
+                "latitude": self.workLocation.y,
+                "longitude": self.homeLocation.x
             ]
         ]
         APIManager.post("/user/\(self.email)/locations", params: params, success: { data in
