@@ -35,7 +35,10 @@ extension User {
         //TODO not from home
         APIManager.get("/incentive/\(self.email)", params: ["from": "home"],
             success: { data in
-                //self.myIncentives.times.removeAll(keepCapacity: false)
+                self.myIncentives.times.removeAll(keepCapacity: false)
+                let incentives = data["incentives"]! as [[String: AnyObject]]
+                self.myIncentives.times = incentives
+                NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: IncentivesChangedNotification, object: nil))
             }, failure: { error in
         })
     }
