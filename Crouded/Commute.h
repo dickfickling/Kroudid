@@ -20,6 +20,8 @@
 @property (nonatomic, strong) AGSGeometry* p1Geofence;
 @property (nonatomic, strong) AGSGeometry* p2Geofence;
 
+// Reference to a gps so we can track when user goes in and out of an area
+@property (nonatomic, weak) AGSLocationDisplay* gps;
 
 - (id)initWithPoint1:(AGSPoint*)p1
               point2:(AGSPoint*)p2;

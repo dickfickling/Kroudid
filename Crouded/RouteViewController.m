@@ -65,6 +65,11 @@
     
     __weak RouteViewController* weakSelf = self;
     [self.user findHomeAddress:address1 workAddress:address2 completion:^(NSError* e) {
+        
+        if (!e) {
+            weakSelf.user.myCommute.gps = weakSelf.mapView.locationDisplay;
+        }
+        
         [weakSelf drawCommute];
     }];
 }
