@@ -69,6 +69,11 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
         
     }
     
+    @IBAction func logoutButtonPressed(sender: AnyObject) {
+        User.logout()
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @IBAction func lockButtonPressed(sender: AnyObject) {
         let user = User.storedUser()
         user.locked = !user.locked

@@ -72,7 +72,6 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     toolbar.translatesAutoresizingMaskIntoConstraints = NO;
     toolbar.barTintColor = [UIColor crowdedBlueColor];
     
-    
     _homeTextField = [[UITextField alloc] init];
     _homeTextField.translatesAutoresizingMaskIntoConstraints = NO;
     _homeTextField.placeholder = @"Home address";

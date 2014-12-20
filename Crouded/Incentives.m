@@ -11,4 +11,14 @@
 
 @implementation Incentives
 
+- (id)initWithTimes:(NSArray *)times {
+    self = [super init];
+    
+    if (self) {
+        _times = times;
+    }
+    
+    return self;
+}
+
 @end

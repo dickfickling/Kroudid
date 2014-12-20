@@ -23,6 +23,7 @@
 		0FA1EE0A1A460800001E8ED6 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1EE091A460800001E8ED6 /* APIManager.swift */; };
 		0FA1EE0D1A46105D001E8ED6 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1EE0B1A46105D001E8ED6 /* BorderedButton.swift */; };
 		0FA1EE0E1A46105D001E8ED6 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1EE0C1A46105D001E8ED6 /* RoundedButton.swift */; };
+		0FA1EE101A4620AC001E8ED6 /* Incentives-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1EE0F1A4620AC001E8ED6 /* Incentives-extension.swift */; };
 		32DFAAD81A45482D00ECB97A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAAD71A45482D00ECB97A /* User.m */; };
 		32DFAADB1A45484600ECB97A /* Incentives.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAADA1A45484600ECB97A /* Incentives.m */; };
 		32DFAADE1A45485E00ECB97A /* Stats.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAADD1A45485E00ECB97A /* Stats.m */; };
@@ -65,6 +66,7 @@
 		0FA1EE091A460800001E8ED6 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		0FA1EE0B1A46105D001E8ED6 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		0FA1EE0C1A46105D001E8ED6 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		0FA1EE0F1A4620AC001E8ED6 /* Incentives-extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Incentives-extension.swift"; sourceTree = "<group>"; };
 		32DFAAD61A45482D00ECB97A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		32DFAAD71A45482D00ECB97A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		32DFAAD91A45484600ECB97A /* Incentives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Incentives.h; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				0FA1EE051A460739001E8ED6 /* User-extension.swift */,
 				32DFAAD91A45484600ECB97A /* Incentives.h */,
 				32DFAADA1A45484600ECB97A /* Incentives.m */,
+				0FA1EE0F1A4620AC001E8ED6 /* Incentives-extension.swift */,
 				32DFAADC1A45485E00ECB97A /* Stats.h */,
 				32DFAADD1A45485E00ECB97A /* Stats.m */,
 			);
@@ -344,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32DFAAE91A45584200ECB97A /* Commute.m in Sources */,
+				0FA1EE101A4620AC001E8ED6 /* Incentives-extension.swift in Sources */,
 				0F7510D21A453CE5005AA052 /* OnboardViewController.swift in Sources */,
 				0F7510A11A453C93005AA052 /* AppDelegate.swift in Sources */,
 				0FA1EE041A45F7D4001E8ED6 /* TotalTimeSavedViewController.swift in Sources */,

@@ -8,6 +8,8 @@
 
 #import "User.h"
 #import "Commute.h"
+#import "Stats.h"
+#import "Incentives.h"
 
 static User* sharedUser = nil;
 
@@ -25,8 +27,8 @@ static User* sharedUser = nil;
 
 @implementation User
 
-- (id)initWithEmail:(NSString *)email {
-    return [self initWithEmail:email locked:false];
+- (id)initWithEmail:(NSString *)email stats:(Stats *)stats {
+    return [self initWithEmail:email locked:false stats:stats];
 }
 
 - (void)setLocked:(bool)locked {
@@ -35,16 +37,19 @@ static User* sharedUser = nil;
     [defaults setBool:locked forKey:UserDefaultsLockedKey];
 }
 
-- (id)initWithEmail:(NSString*)email locked:(BOOL)locked {
+- (id)initWithEmail:(NSString*)email locked:(BOOL)locked  stats: (Stats*)stats {
     self = [super init];
     if (self) {
         _email = email;
         _locked = locked;
+        _myStats = stats;
+        _myIncentives = [[Incentives alloc] initWithTimes:[[NSArray alloc] init]];
         
         // Store email and locked
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:email forKey:UserDefaultsEmailKey];
         [defaults setBool:locked forKey:UserDefaultsLockedKey];
+        [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:stats] forKey:UserDefaultsStatsKey];
         [defaults synchronize];
     }
     
@@ -62,10 +67,10 @@ static User* sharedUser = nil;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString* email = [defaults objectForKey:UserDefaultsEmailKey];
     BOOL locked = [defaults boolForKey:UserDefaultsLockedKey];
+    Stats* stats = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults dataForKey:UserDefaultsStatsKey]];
     
     if (email) {
-        sharedUser =  [[User alloc] initWithEmail:email locked:locked];
-        return sharedUser;
+        return [[User alloc] initWithEmail:email locked:locked stats:stats];
     }
     
     return nil;

@@ -14,4 +14,6 @@ NSString* const IncentivesChangedNotification = @"foo";
 
 @property (nonatomic, strong) NSArray* times;
 
+- (id)initWithTimes:(NSArray*)times;
+
 @end

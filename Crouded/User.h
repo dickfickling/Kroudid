@@ -28,11 +28,11 @@
 
 @property (nonatomic, strong, readonly) Stats*    myStats;
 
-@property (nonatomic, strong, readonly) Incentives* myIncentives;
+@property (nonatomic, strong) Incentives* myIncentives;
 
 // Will overwrite any previous user on device
-- (id)initWithEmail:(NSString*)email;
-- (id)initWithEmail:(NSString *)email locked:(BOOL)locked;
+- (id)initWithEmail:(NSString *)email stats:(Stats*)stats;
+- (id)initWithEmail:(NSString *)email locked:(BOOL)locked stats:(Stats*)stats;
 
 // Can return nil if there is no stored user on device
 + (User*)storedUser;

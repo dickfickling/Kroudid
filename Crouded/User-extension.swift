@@ -12,18 +12,31 @@ extension User {
     class func enter(email: String, success: (User) -> (), failure: (NSError) -> ()) {
         APIManager.post("/user", params: ["email": email],
             success: { data in
-                let user = User(email: email)
+                let points = data["points"]! as UInt
+                let timeSaved = data["time_saved"]! as UInt
+                let totalTimeSaved = data["total_time_saved"]! as UInt
+                let registrationDate = NSDate(timeIntervalSince1970: data["registration_date"]! as Double)
+                let stats = Stats(points: points, timeSaved: timeSaved, totalTimeSaved: totalTimeSaved, registrationDate: registrationDate)
+                let user = User(email: email, stats: stats)
                 return success(user)
             },
-            failure: { error in //TODO
-                let user = User(email: email)
-                return success(user)
-            }
+            failure: failure
         )
     }
     
     class func logout() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setNilValueForKey(UserDefaultsEmailKey)
+        defaults.removeObjectForKey(UserDefaultsEmailKey)
+        defaults.synchronize()
+    }
+    
+    func refreshIncentives() {
+        let commute = self.myCommute
+        //TODO not from home
+        APIManager.get("/incentive/\(self.email)", params: ["from": "home"],
+            success: { data in
+                //self.myIncentives.times.removeAll(keepCapacity: false)
+            }, failure: { error in
+        })
     }
 }

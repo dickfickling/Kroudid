@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Stats : NSObject
+#define UserDefaultsStatsKey @"UserDefaultsStats"
+
+@interface Stats : NSObject <NSCoding>
 
 @property (nonatomic) NSUInteger points;
 @property (nonatomic) NSUInteger timeSaved;
 @property (nonatomic) NSUInteger totalTimeSaved;
 @property (nonatomic) NSDate* registrationDate;
+
+- (id)initWithPoints:(NSUInteger)points timeSaved:(NSUInteger)timeSaved totalTimeSaved:(NSUInteger)totalTimeSaved registrationDate:(NSDate*)registrationDate;
 
 @end
