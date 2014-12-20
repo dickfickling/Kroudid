@@ -47,12 +47,18 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHX-nJ-LIa" customClass="BorderedButton" customModule="Crouded" customModuleProvider="target">
-                                <rect key="frame" x="103" y="161" width="115" height="53"/>
+                                <rect key="frame" x="189" y="165" width="115" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="sign in">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K2H-FO-hPC"/>
                                 </connections>
@@ -64,6 +70,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="jni-nJ-23e" id="oEl-FL-lZC"/>
                         <outlet property="passwordTextField" destination="Cba-co-QbZ" id="Y2v-Ly-Hjv"/>
+                        <outlet property="signInButton" destination="xHX-nJ-LIa" id="XjP-yz-D9A"/>
                         <segue destination="Re5-p5-xP1" kind="presentation" identifier="mainViewSegue" modalTransitionStyle="crossDissolve" id="5jP-Zc-S8G"/>
                     </connections>
                 </viewController>

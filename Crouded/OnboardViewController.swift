@@ -10,6 +10,7 @@ import UIKit
 
 class OnboardViewController: UIViewController {
 
+    @IBOutlet weak var signInButton: BorderedButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     override func viewDidLoad() {
@@ -26,16 +27,19 @@ class OnboardViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        User.signOutStoredUser()
-        
         if User.storedUser() == nil {
             UIView.animateWithDuration(0.5, animations: {
                 self.emailTextField.alpha = 1.0
                 self.passwordTextField.alpha = 1.0
+                self.signInButton.alpha = 1.0
             })
         } else {
             self.performSegueWithIdentifier("mainViewSegue", sender: self)
         }
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
     @IBAction func loginButtonPressed(sender: AnyObject) {
