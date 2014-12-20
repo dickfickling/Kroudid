@@ -36,5 +36,7 @@ class OnboardViewController: UIViewController {
 //        }
     }
     
+    @IBAction func loginButtonPressed(sender: AnyObject) {
+    }
 
 }
