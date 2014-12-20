@@ -15,9 +15,10 @@
 		0F7510D11A453CE5005AA052 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510CD1A453CE5005AA052 /* MainViewController.swift */; };
 		0F7510D21A453CE5005AA052 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510CE1A453CE5005AA052 /* OnboardViewController.swift */; };
 		0F7510DC1A453F32005AA052 /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510DB1A453F32005AA052 /* RouteViewController.m */; };
-		0F7510E71A4542BD005AA052 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510E61A4542BD005AA052 /* User.m */; };
-		0F7510E91A4542C8005AA052 /* Incentive.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510E81A4542C8005AA052 /* Incentive.m */; };
 		32DFAAD31A45449D00ECB97A /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 32DFAAD21A45449D00ECB97A /* ArcGIS.bundle */; };
+		32DFAAD81A45482D00ECB97A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAAD71A45482D00ECB97A /* User.m */; };
+		32DFAADB1A45484600ECB97A /* Incentives.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAADA1A45484600ECB97A /* Incentives.m */; };
+		32DFAADE1A45485E00ECB97A /* Stats.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAADD1A45485E00ECB97A /* Stats.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,9 +46,13 @@
 		0F7510D31A453DA2005AA052 /* Crouded-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crouded-Bridging-Header.h"; sourceTree = "<group>"; };
 		0F7510DA1A453F32005AA052 /* RouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteViewController.h; sourceTree = "<group>"; };
 		0F7510DB1A453F32005AA052 /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteViewController.m; sourceTree = "<group>"; };
-		0F7510E61A4542BD005AA052 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		0F7510E81A4542C8005AA052 /* Incentive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Incentive.m; sourceTree = "<group>"; };
 		32DFAAD21A45449D00ECB97A /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ArcGIS.bundle; path = ../../Library/SDKs/ArcGIS/iOS/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle; sourceTree = "<group>"; };
+		32DFAAD61A45482D00ECB97A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		32DFAAD71A45482D00ECB97A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		32DFAAD91A45484600ECB97A /* Incentives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Incentives.h; sourceTree = "<group>"; };
+		32DFAADA1A45484600ECB97A /* Incentives.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Incentives.m; sourceTree = "<group>"; };
+		32DFAADC1A45485E00ECB97A /* Stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stats.h; sourceTree = "<group>"; };
+		32DFAADD1A45485E00ECB97A /* Stats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stats.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +94,8 @@
 		0F75109D1A453C93005AA052 /* Crouded */ = {
 			isa = PBXGroup;
 			children = (
+				32DFAADF1A45486600ECB97A /* Models */,
 				32DFAAD21A45449D00ECB97A /* ArcGIS.bundle */,
-				0F7510E61A4542BD005AA052 /* User.m */,
-				0F7510E81A4542C8005AA052 /* Incentive.m */,
 				0F7510A01A453C93005AA052 /* AppDelegate.swift */,
 				0F7510AA1A453C93005AA052 /* Images.xcassets */,
 				0F7510AC1A453C93005AA052 /* LaunchScreen.xib */,
@@ -129,6 +133,19 @@
 				0F7510B81A453C93005AA052 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		32DFAADF1A45486600ECB97A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				32DFAAD61A45482D00ECB97A /* User.h */,
+				32DFAAD71A45482D00ECB97A /* User.m */,
+				32DFAAD91A45484600ECB97A /* Incentives.h */,
+				32DFAADA1A45484600ECB97A /* Incentives.m */,
+				32DFAADC1A45485E00ECB97A /* Stats.h */,
+				32DFAADD1A45485E00ECB97A /* Stats.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,12 +249,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F7510E71A4542BD005AA052 /* User.m in Sources */,
 				0F7510D21A453CE5005AA052 /* OnboardViewController.swift in Sources */,
 				0F7510A11A453C93005AA052 /* AppDelegate.swift in Sources */,
+				32DFAAD81A45482D00ECB97A /* User.m in Sources */,
+				32DFAADB1A45484600ECB97A /* Incentives.m in Sources */,
+				32DFAADE1A45485E00ECB97A /* Stats.m in Sources */,
 				0F7510DC1A453F32005AA052 /* RouteViewController.m in Sources */,
 				0F7510D11A453CE5005AA052 /* MainViewController.swift in Sources */,
-				0F7510E91A4542C8005AA052 /* Incentive.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
