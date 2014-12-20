@@ -80,7 +80,7 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
     }
     
     @IBAction func logoutButtonPressed(sender: AnyObject) {
-        User.logout()
+        User.signOutStoredUser()
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     

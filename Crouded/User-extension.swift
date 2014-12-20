@@ -24,22 +24,17 @@ extension User {
         )
     }
     
-    class func logout() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.removeObjectForKey(UserDefaultsEmailKey)
-        defaults.synchronize()
-    }
-    
     func refreshIncentives() {
         let commute = self.myCommute
         //TODO not from home
-        APIManager.get("/incentive/\(self.email)", params: ["from": "home"],
+        APIManager.get("/incentives/\(self.email)", params: ["from": "home"],
             success: { data in
                 self.myIncentives.times.removeAll(keepCapacity: false)
                 let incentives = data["incentives"]! as [[String: AnyObject]]
                 self.myIncentives.times = incentives
                 NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: IncentivesChangedNotification, object: nil))
             }, failure: { error in
+                println(error)
         })
     }
     
