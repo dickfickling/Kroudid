@@ -8,16 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0F7510A11A453C93005AA052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510A01A453C93005AA052 /* AppDelegate.swift */; };
-		0F7510A41A453C93005AA052 /* Crouded.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510A21A453C93005AA052 /* Crouded.xcdatamodeld */; };
 		0F7510AB1A453C93005AA052 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F7510AA1A453C93005AA052 /* Images.xcassets */; };
 		0F7510AE1A453C93005AA052 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7510AC1A453C93005AA052 /* LaunchScreen.xib */; };
 		0F7510BA1A453C93005AA052 /* CroudedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510B91A453C93005AA052 /* CroudedTests.swift */; };
 		0F7510CF1A453CE5005AA052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F7510CB1A453CE5005AA052 /* Main.storyboard */; };
 		0F7510D11A453CE5005AA052 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510CD1A453CE5005AA052 /* MainViewController.swift */; };
 		0F7510D21A453CE5005AA052 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510CE1A453CE5005AA052 /* OnboardViewController.swift */; };
-		0F7510D61A453DA3005AA052 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510D51A453DA3005AA052 /* User.m */; };
-		0F7510D91A453DB1005AA052 /* Incentives.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510D81A453DB1005AA052 /* Incentives.m */; };
 		0F7510DC1A453F32005AA052 /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510DB1A453F32005AA052 /* RouteViewController.m */; };
+		0F7510E71A4542BD005AA052 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510E61A4542BD005AA052 /* User.m */; };
+		0F7510E91A4542C8005AA052 /* Incentive.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510E81A4542C8005AA052 /* Incentive.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +33,6 @@
 		0F75109B1A453C93005AA052 /* Crouded.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crouded.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F75109F1A453C93005AA052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F7510A01A453C93005AA052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0F7510A31A453C93005AA052 /* Crouded.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Crouded.xcdatamodel; sourceTree = "<group>"; };
 		0F7510AA1A453C93005AA052 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0F7510AD1A453C93005AA052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0F7510B31A453C93005AA052 /* CroudedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CroudedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,12 +42,10 @@
 		0F7510CD1A453CE5005AA052 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0F7510CE1A453CE5005AA052 /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		0F7510D31A453DA2005AA052 /* Crouded-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crouded-Bridging-Header.h"; sourceTree = "<group>"; };
-		0F7510D41A453DA3005AA052 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		0F7510D51A453DA3005AA052 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		0F7510D71A453DB1005AA052 /* Incentives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Incentives.h; sourceTree = "<group>"; };
-		0F7510D81A453DB1005AA052 /* Incentives.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Incentives.m; sourceTree = "<group>"; };
 		0F7510DA1A453F32005AA052 /* RouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteViewController.h; sourceTree = "<group>"; };
 		0F7510DB1A453F32005AA052 /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteViewController.m; sourceTree = "<group>"; };
+		0F7510E61A4542BD005AA052 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		0F7510E81A4542C8005AA052 /* Incentive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Incentive.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,14 +87,11 @@
 		0F75109D1A453C93005AA052 /* Crouded */ = {
 			isa = PBXGroup;
 			children = (
+				0F7510E61A4542BD005AA052 /* User.m */,
+				0F7510E81A4542C8005AA052 /* Incentive.m */,
 				0F7510A01A453C93005AA052 /* AppDelegate.swift */,
 				0F7510AA1A453C93005AA052 /* Images.xcassets */,
 				0F7510AC1A453C93005AA052 /* LaunchScreen.xib */,
-				0F7510A21A453C93005AA052 /* Crouded.xcdatamodeld */,
-				0F7510D71A453DB1005AA052 /* Incentives.h */,
-				0F7510D81A453DB1005AA052 /* Incentives.m */,
-				0F7510D41A453DA3005AA052 /* User.h */,
-				0F7510D51A453DA3005AA052 /* User.m */,
 				0F7510CB1A453CE5005AA052 /* Main.storyboard */,
 				0F7510DA1A453F32005AA052 /* RouteViewController.h */,
 				0F7510DB1A453F32005AA052 /* RouteViewController.m */,
@@ -235,13 +228,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F7510D91A453DB1005AA052 /* Incentives.m in Sources */,
+				0F7510E71A4542BD005AA052 /* User.m in Sources */,
 				0F7510D21A453CE5005AA052 /* OnboardViewController.swift in Sources */,
-				0F7510A41A453C93005AA052 /* Crouded.xcdatamodeld in Sources */,
-				0F7510D61A453DA3005AA052 /* User.m in Sources */,
 				0F7510A11A453C93005AA052 /* AppDelegate.swift in Sources */,
 				0F7510DC1A453F32005AA052 /* RouteViewController.m in Sources */,
 				0F7510D11A453CE5005AA052 /* MainViewController.swift in Sources */,
+				0F7510E91A4542C8005AA052 /* Incentive.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,19 +434,6 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		0F7510A21A453C93005AA052 /* Crouded.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0F7510A31A453C93005AA052 /* Crouded.xcdatamodel */,
-			);
-			currentVersion = 0F7510A31A453C93005AA052 /* Crouded.xcdatamodel */;
-			path = Crouded.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0F7510931A453C93005AA052 /* Project object */;
 }

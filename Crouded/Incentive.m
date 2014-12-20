@@ -1,5 +1,5 @@
 //
-//  User.m
+//  Incentive.m
 //  Crouded
 //
 //  Created by Richard Fickling on 12/19/14.
