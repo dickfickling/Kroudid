@@ -11,9 +11,26 @@
 #import "Commute.h"
 #import <ArcGIS/ArcGIS.h>
 
+// first parameter is an NSDictionary of metrics (or nil),
+// subsequent parameters are variable names which are used exactly like
+// the params to NSDictionaryOfVariableBindings()
+#define NSDictionariesOfMetricsAndVariables(pMetricsDictionary,...) \
+NSDictionary* viewsDict     = _NSDictionaryOfVariableBindings(@"" # __VA_ARGS__, __VA_ARGS__, nil);  \
+NSDictionary* metrics       = pMetricsDictionary; \
+NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // defines "constraints" array for users
+
+#define NSLConstraints(pFormat)    \
+[NSLayoutConstraint constraintsWithVisualFormat:pFormat options:NSLayoutFormatDirectionLeftToRight metrics:metrics views:viewsDict]
+
+#define AddConstraints(pArray)     [constraints addObjectsFromArray:pArray]
+
 @interface RouteViewController () <AGSMapViewTouchDelegate>
 
 @property (nonatomic, strong) AGSMapView* mapView;
+@property (nonatomic, strong) UIToolbar* toolbar;
+@property (nonatomic, strong) UIBarButtonItem* findButton;
+@property (nonatomic, strong) UITextField* homeTextField;
+@property (nonatomic, strong) UITextField* workTextField;
 
 @property (nonatomic, strong) AGSGraphicsLayer* fencesLayer;
 @property (nonatomic, strong) AGSGraphicsLayer* commuteLayer;
@@ -32,7 +49,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _mapView = [[AGSMapView alloc] initWithFrame:self.view.bounds];
+    AGSMapView* mv = [[AGSMapView alloc] initWithFrame:CGRectZero];
+    mv.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    _mapView = mv;
     
     [self.view addSubview:_mapView];
     
@@ -51,13 +71,49 @@
     _commuteLayer = [AGSGraphicsLayer graphicsLayer];
     [self.mapView addMapLayer:self.commuteLayer];
     
-    _user = [User storedUser];
-    if (!self.user) {
-        _user = [[User alloc] initWithEmail:@"sample1234@gmail.com"];
-    }
+    UIToolbar* toolbar = [[UIToolbar alloc] init];
+    toolbar.translatesAutoresizingMaskIntoConstraints = NO;
     
-    [self findTypicalCommute];
     
+    UIBarButtonItem* flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                                   target:nil
+                                                                                   action:nil];
+    _findButton = [[UIBarButtonItem alloc] initWithTitle:@"Find"
+                                                                   style:UIBarButtonItemStyleDone
+                                                               target:self
+                                                               action:@selector(findTypicalCommute)];
+    self.findButton.enabled = NO;
+    
+    
+    _homeTextField = [[UITextField alloc] init];
+    _homeTextField.translatesAutoresizingMaskIntoConstraints = NO;
+    _homeTextField.placeholder = @"Home address";
+    _homeTextField.borderStyle = UITextBorderStyleRoundedRect;
+    
+    _workTextField = [[UITextField alloc] init];
+    _workTextField.translatesAutoresizingMaskIntoConstraints = NO;
+    _workTextField.placeholder = @"Work address";
+    _workTextField.borderStyle = UITextBorderStyleRoundedRect;
+    
+    [self.view addSubview:self.homeTextField];
+    [self.view addSubview:self.workTextField];
+    
+    [self.view addSubview:toolbar];
+    toolbar.items = @[flexibleSpace, self.findButton];
+    _toolbar = toolbar;
+    
+    // create auto layout constraints for toolbar and content views
+    NSDictionariesOfMetricsAndVariables(nil, mv, toolbar, _homeTextField, _workTextField);
+    
+    AddConstraints(NSLConstraints(@"H:|[mv]|"));
+    AddConstraints(NSLConstraints(@"H:|[toolbar]|"));
+    AddConstraints(NSLConstraints(@"H:|-5-[_homeTextField]-5-|"));
+    AddConstraints(NSLConstraints(@"H:|-5-[_workTextField]-5-|"));
+    AddConstraints(NSLConstraints(@"V:|-20-[toolbar]-2-[_homeTextField]-2-[_workTextField][mv]|"));
+    
+    [self.view addConstraints:constraints];
+    
+    //[self findTypicalCommute];
 }
 
 - (void)findTypicalCommute
