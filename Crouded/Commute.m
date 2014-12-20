@@ -52,7 +52,7 @@ typedef enum{
     NSLog(@"End commute");
 }
 
-#define kBufferFactor 300
+#define kBufferFactor 200
 - (AGSGeometry*)p1Geofence
 {
     if (_p1Geofence == nil) {

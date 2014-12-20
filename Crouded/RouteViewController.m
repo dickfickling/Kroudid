@@ -75,15 +75,6 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     toolbar.barTintColor = [UIColor crowdedBlueColor];
     
     
-    UIBarButtonItem* flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                                   target:nil
-                                                                                   action:nil];
-    _findButton = [[UIBarButtonItem alloc] initWithTitle:@"Find"
-                                                                   style:UIBarButtonItemStyleDone
-                                                               target:self
-                                                               action:@selector(findTypicalCommute)];
-    self.findButton.tintColor = [UIColor whiteColor];
-    
     _homeTextField = [[UITextField alloc] init];
     _homeTextField.translatesAutoresizingMaskIntoConstraints = NO;
     _homeTextField.placeholder = @"Home address";
@@ -97,9 +88,8 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     [self.view addSubview:self.homeTextField];
     [self.view addSubview:self.workTextField];
     
-    [self.view addSubview:toolbar];
-    toolbar.items = @[flexibleSpace, self.findButton];
     _toolbar = toolbar;
+    [self.view addSubview:toolbar];
     
     // create auto layout constraints for toolbar and content views
     NSDictionariesOfMetricsAndVariables(nil, mv, toolbar, _homeTextField, _workTextField);
@@ -114,6 +104,7 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     [self.view addConstraints:constraints];
     
     [self prepopulateTextFields];
+    [self populateToolbar];
 }
 
 - (void)prepopulateTextFields
@@ -121,6 +112,40 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     self.homeTextField.text = @"10889 N DE ANZA BLVD Cupertino, CA, 95014";
     self.workTextField.text = @"10715 GRAPNEL PL Cupertino, CA 95014";
     //NSString* address2 = @"10711 BAXTER AVE LOS ALTOS, CA 94024";
+}
+
+- (void)findButtonClicked
+{
+    if ([[User storedUser] hasValidCommute]) {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    }
+    else {
+        [self findTypicalCommute];
+    }
+}
+
+- (void)populateToolbar
+{
+    UIBarButtonItem* flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                                   target:nil
+                                                                                   action:nil];
+    
+    NSString* title = [[User storedUser] hasValidCommute] ? @"Your commute" : @"Create your commute";
+    UIBarButtonItem* titleButton = [[UIBarButtonItem alloc] initWithTitle:title
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:nil
+                                                                   action:nil];
+
+    titleButton.tintColor = [UIColor whiteColor];
+    
+    NSString* findTitle = [[User storedUser] hasValidCommute] ? @"OK": @"Find";
+    _findButton = [[UIBarButtonItem alloc] initWithTitle:findTitle
+                                                   style:UIBarButtonItemStyleDone
+                                                  target:self
+                                                  action:@selector(findButtonClicked)];
+    self.findButton.tintColor = [UIColor whiteColor];
+    
+    self.toolbar.items = @[titleButton, flexibleSpace, self.findButton];
 }
 
 - (void)findTypicalCommute
@@ -140,6 +165,7 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
         }
         
         [weakSelf drawCommute];
+        [weakSelf populateToolbar];
     }];
 }
 
@@ -150,19 +176,19 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     }
     
     AGSSimpleLineSymbol* sls1 = [AGSSimpleLineSymbol simpleLineSymbol];
-    sls1.color = [UIColor redColor];
+    sls1.color = [UIColor crowdedBlueColor];
     
     AGSSimpleLineSymbol* sls2 = [AGSSimpleLineSymbol simpleLineSymbol];
-    sls2.color = [UIColor greenColor];
+    sls2.color = [UIColor crowdedBlueColor];
     
     
     // Add geofences to map
     AGSSimpleFillSymbol* sfs1 = [AGSSimpleFillSymbol simpleFillSymbol];
-    sfs1.color = [[UIColor redColor] colorWithAlphaComponent:0.5];
+    sfs1.color = [[UIColor crowdedBlueColor] colorWithAlphaComponent:0.5];
     sfs1.outline = sls1;
     
     AGSSimpleFillSymbol* sfs2 = [AGSSimpleFillSymbol simpleFillSymbol];
-    sfs2.color = [[UIColor greenColor] colorWithAlphaComponent:0.5];
+    sfs2.color = [[UIColor crowdedBlueColor] colorWithAlphaComponent:0.5];
     sfs2.outline = sls2;
     
     User* user = [User storedUser];
@@ -182,10 +208,10 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     AGSPoint* p2 = (AGSPoint*)[ge projectGeometry:user.workLocation toSpatialReference:self.mapView.spatialReference];
     
     AGSSimpleMarkerSymbol* sms1 = [AGSSimpleMarkerSymbol simpleMarkerSymbol];
-    sms1.color = [UIColor redColor];
+    sms1.color = [UIColor crowdedBlueColor];
     
     AGSSimpleMarkerSymbol* sms2 = [AGSSimpleMarkerSymbol simpleMarkerSymbol];
-    sms2.color = [UIColor greenColor];
+    sms2.color = [UIColor crowdedBlueColor];
     
     AGSGraphic* p1Graphic = [AGSGraphic graphicWithGeometry:p1
                                                      symbol:sms1
