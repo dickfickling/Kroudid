@@ -7,15 +7,34 @@
 //
 
 #import "RouteViewController.h"
+#import <ArcGIS/ArcGIS.h>
 
 @interface RouteViewController ()
+
+@property (nonatomic, strong) AGSMapView* mapView;
+
 
 @end
 
 @implementation RouteViewController
 
+- (IBAction)okButtonPressed:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _mapView = [[AGSMapView alloc] initWithFrame:self.view.bounds];
+    
+    [self.view addSubview:_mapView];
+    self.mapView.locationDisplay.startDataSource;
+    
+    //Add a basemap tiled layer
+    NSURL* url = [NSURL URLWithString:@"http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer"];
+    AGSTiledMapServiceLayer *tiledLayer = [AGSTiledMapServiceLayer tiledMapServiceLayerWithURL:url];
+    [self.mapView addMapLayer:tiledLayer withName:@"Basemap Tiled Layer"];
+    
     // Do any additional setup after loading the view.
 }
 

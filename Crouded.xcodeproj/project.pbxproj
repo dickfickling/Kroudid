@@ -17,6 +17,7 @@
 		0F7510DC1A453F32005AA052 /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510DB1A453F32005AA052 /* RouteViewController.m */; };
 		0F7510E71A4542BD005AA052 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510E61A4542BD005AA052 /* User.m */; };
 		0F7510E91A4542C8005AA052 /* Incentive.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7510E81A4542C8005AA052 /* Incentive.m */; };
+		32DFAAD31A45449D00ECB97A /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 32DFAAD21A45449D00ECB97A /* ArcGIS.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		0F7510DB1A453F32005AA052 /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteViewController.m; sourceTree = "<group>"; };
 		0F7510E61A4542BD005AA052 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		0F7510E81A4542C8005AA052 /* Incentive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Incentive.m; sourceTree = "<group>"; };
+		32DFAAD21A45449D00ECB97A /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ArcGIS.bundle; path = ../../Library/SDKs/ArcGIS/iOS/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		0F75109D1A453C93005AA052 /* Crouded */ = {
 			isa = PBXGroup;
 			children = (
+				32DFAAD21A45449D00ECB97A /* ArcGIS.bundle */,
 				0F7510E61A4542BD005AA052 /* User.m */,
 				0F7510E81A4542C8005AA052 /* Incentive.m */,
 				0F7510A01A453C93005AA052 /* AppDelegate.swift */,
@@ -210,6 +213,7 @@
 			files = (
 				0F7510CF1A453CE5005AA052 /* Main.storyboard in Resources */,
 				0F7510AE1A453C93005AA052 /* LaunchScreen.xib in Resources */,
+				32DFAAD31A45449D00ECB97A /* ArcGIS.bundle in Resources */,
 				0F7510AB1A453C93005AA052 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +291,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS/";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -304,6 +309,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					ArcGIS,
+					"-l",
+					"c++",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -331,6 +343,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS/";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -340,6 +353,13 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					ArcGIS,
+					"-l",
+					"c++",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -424,6 +444,7 @@
 				0F7510BF1A453C93005AA052 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0F7510C01A453C93005AA052 /* Build configuration list for PBXNativeTarget "CroudedTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +453,7 @@
 				0F7510C21A453C93005AA052 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
