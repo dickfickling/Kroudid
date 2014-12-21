@@ -15,6 +15,29 @@ class PointsViewController: UIViewController {
         super.viewDidLoad()
 
         self.pointsLabel.text = "\(User.storedUser().myStats.points)"
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("arrived"), name: CommuteCompletedNotification, object: nil)
+    }
+    
+    func arrived() {
+        UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
+            self.pointsLabel.alpha = 0;
+            
+            }, completion: { finished in
+                self.pointsLabel.text = "\(self.pointsLabel.text!.toInt()! + 65)"
+                UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
+                    self.pointsLabel.alpha = 1;
+                    
+                    }, completion: { finished in
+                        
+                })
+                
+        })
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
     }
 
     override func didReceiveMemoryWarning() {

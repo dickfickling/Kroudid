@@ -19,10 +19,10 @@ class TimeSavedViewController: UIViewController {
         self.timeLabel.text = "\(minutesSaved)"
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "LLLL"
+        dateFormatter.dateFormat = "LLLL YYYY"
         let str = dateFormatter.stringFromDate(User.storedUser().myStats.registrationDate)
         
-        self.sinceLabel.text = "minutes since \(str)"
+        self.sinceLabel.text = "minutes since\n\(str)"
     }
 
     override func didReceiveMemoryWarning() {
