@@ -35,7 +35,7 @@ extension User {
             APIManager.get("/incentives/\(self.email)", params: ["from": commute.atHomeOrAtWork() ? "home" : "work"],
                 success: { data in
                     self.myIncentives.times.removeAll(keepCapacity: false)
-                    let incentives = data["incentives"]! as [[String: AnyObject]]
+                    let incentives = []//data["incentives"]! as [[String: AnyObject]]
                     self.myIncentives.times = incentives
                     NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: IncentivesChangedNotification, object: nil))
                     
@@ -44,9 +44,9 @@ extension User {
             })
         }
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), {
+        /*dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), {
             self.refreshIncentives()
-        })
+        })*/
     }
     
     @objc func postLocations(success: () -> (), failure: (NSError) -> ()) {
