@@ -10,7 +10,9 @@ import UIKit
 
 class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
-    @IBOutlet weak var lockButton: UIButton!
+    @IBOutlet weak var firstIncentive: UIControl!
+    @IBOutlet weak var secondIncentive: UIControl!
+    @IBOutlet weak var thirdIncentive: UIControl!
     var pageViewController: UIPageViewController!
     var statsViewControllers: [UIViewController] = []
 
@@ -54,6 +56,9 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
     override func viewDidAppear(animated: Bool) {
         if User.storedUser().hasValidCommute() {
             updateViewForUser()
+            
+            User.storedUser().myCommute.startCommute()
+            
         } else {
             let alert = UIAlertView(title: "Set your commute", message: "Before you can use Crouded, you have to tell us a bit about your commute.", delegate: self, cancelButtonTitle: "OK")
             alert.show()
@@ -72,14 +77,11 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
     
     func updateViewForUser() {
         let user = User.storedUser()
-        self.lockButton.setTitle(user.locked ? "🔒" : "🔓", forState: UIControlState.Normal)
         
         if user.myIncentives.times.count > 0 {
             updateIncentivesDisplay()
         }
-        if !user.locked {
-            user.refreshIncentives()
-        }
+        user.refreshIncentives()
         
     }
     
@@ -88,10 +90,17 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func lockButtonPressed(sender: AnyObject) {
+    @IBAction func incentiveSelected(sender: UIControl) {
         let user = User.storedUser()
-        user.locked = !user.locked
-        updateViewForUser()
+        user.locked = true
+        
+        for control in [firstIncentive, secondIncentive, thirdIncentive] {
+            if control != sender {
+                UIView.animateWithDuration(0.3, animations: { control.alpha = 0.2 })
+            } else {
+                UIView.animateWithDuration(0.3, animations: { control.alpha = 1.0 })
+            }
+        }
     }
     
     

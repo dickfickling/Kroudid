@@ -20,10 +20,15 @@ typedef enum{
 } CommuteState;
 
 #import "Commute.h"
+#import "MapView.h"
 
 @interface Commute()
 
 @property (nonatomic, assign) CommuteState commuteState;
+
+@property (nonatomic, strong) NSDate* startDate;
+@property (nonatomic, strong) NSDate* endDate;
+@property (nonatomic, strong) AGSMutablePolyline* currentCommute;
 
 @end
 
@@ -47,13 +52,21 @@ typedef enum{
 - (void)startCommute
 {
     self.commuteState = CommuteStateUnknown;
-    [self.gps addObserver:self forKeyPath:kLocationPath options:0 context:nil];
+    
+    AGSLocationDisplay* gps = [[MapView sharedMapView] locationDisplay];
+    [gps startDataSource];
+    [[MapView sharedMapView].locationDisplay addObserver:self
+                                              forKeyPath:kLocationPath
+                                                 options:0
+                                                 context:nil];
 }
 
-- (void)endCommut
+- (void)endCommute
 {
-    [self.gps removeObserver:self forKeyPath:kLocationPath];
+    AGSLocationDisplay* gps = [[MapView sharedMapView] locationDisplay];
+    [gps removeObserver:self forKeyPath:kLocationPath];
     self.commuteState = CommuteStateNotCommuting;
+    [gps stopDataSource];
 }
 
 - (BOOL)atHomeOrAtWork
@@ -93,7 +106,8 @@ typedef enum{
 - (void)calculateCommuteState
 {
     AGSGeometryEngine* ge = [AGSGeometryEngine defaultGeometryEngine];
-    AGSPoint* location = (AGSPoint*)[ge projectGeometry:self.gps.location.point
+    AGSLocationDisplay* gps = [[MapView sharedMapView] locationDisplay];
+    AGSPoint* location = (AGSPoint*)[ge projectGeometry:gps.location.point
                           toSpatialReference:[AGSSpatialReference webMercatorSpatialReference]];
     
     
@@ -110,12 +124,14 @@ typedef enum{
         case CommuteStateAtP1:
             break;
         case CommuteStateLeftP1:
+            [self startWritingNewCommute];
             break;
         case CommuteStateArrivedP1:
             break;
         case CommuteStateAtP2:
             break;
         case CommuteStateLeftP2:
+            [self startWritingNewCommute];
             break;
         case CommuteStateArrivedP2:
             break;
@@ -176,6 +192,24 @@ typedef enum{
     }
     
     NSLog(@"%@", [self stringFromState:self.commuteState]);
+}
+
+- (void)startWritingNewCommute
+{
+    _currentCommute = [[AGSMutablePolyline alloc] init];
+    [_currentCommute addPathToPolyline];
+    
+    _startDate = [NSDate date];
+}
+
+- (void)writeToCommute
+{
+    
+}
+
+- (void)completeCommuteAndWrite:(BOOL)write
+{
+    _endDate = [NSDate date];
 }
 
 - (NSString*)stringFromState:(CommuteState)state

@@ -46,7 +46,6 @@ class OnboardViewController: UIViewController {
         let email: NSString = self.emailTextField.text
         if email.length > 0 {
             let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-            hud.color = navy
             User.enter(self.emailTextField.text, success: { user in
                 hud.hide(true)
                 self.performSegueWithIdentifier("mainViewSegue", sender: self)
