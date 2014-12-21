@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C78c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -12,7 +12,7 @@
         <!--Onboard View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="OnboardViewController" customModule="Crouded" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="OnboardViewController" customModule="Crowded" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -44,7 +44,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHX-nJ-LIa" customClass="BorderedButton" customModule="Crouded" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHX-nJ-LIa" customClass="BorderedButton" customModule="Crowded" customModuleProvider="target">
                                 <rect key="frame" x="189" y="165" width="115" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -97,7 +97,7 @@
         <!--Main View Controller-->
         <scene sceneID="hJx-Qn-HOZ">
             <objects>
-                <viewController id="Re5-p5-xP1" customClass="MainViewController" customModule="Crouded" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Re5-p5-xP1" customClass="MainViewController" customModule="Crowded" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D7d-ba-c0Y"/>
                         <viewControllerLayoutGuide type="bottom" id="aZe-Nt-kEw"/>
@@ -160,9 +160,9 @@
                                     <action selector="incentiveSelected:" destination="Re5-p5-xP1" eventType="touchUpInside" id="REm-5j-MPk"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zR-op-0gw" customClass="UnderlinedButton" customModule="Crouded" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zR-op-0gw" customClass="UnderlinedButton" customModule="Crowded" customModuleProvider="target">
                                 <rect key="frame" x="81" y="334" width="158" height="30"/>
-                                <state key="normal" title="update my commute">
+                                <state key="normal" title="see my commute">
                                     <color key="titleColor" red="0.3411764706" green="0.50196078430000002" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -212,7 +212,7 @@
         <!--Time Saved View Controller-->
         <scene sceneID="wqd-Zp-SdN">
             <objects>
-                <viewController storyboardIdentifier="timeSavedViewController" id="qPE-6V-SxT" customClass="TimeSavedViewController" customModule="Crouded" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timeSavedViewController" id="qPE-6V-SxT" customClass="TimeSavedViewController" customModule="Crowded" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gO2-Rq-9Ro"/>
                         <viewControllerLayoutGuide type="bottom" id="d2p-jw-n3T"/>
@@ -256,7 +256,7 @@
         <!--Points View Controller-->
         <scene sceneID="LJq-hg-hwE">
             <objects>
-                <viewController storyboardIdentifier="pointsViewController" id="fRr-Oz-k6N" customClass="PointsViewController" customModule="Crouded" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pointsViewController" id="fRr-Oz-k6N" customClass="PointsViewController" customModule="Crowded" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2li-VI-5mR"/>
                         <viewControllerLayoutGuide type="bottom" id="Wng-VJ-5xH"/>
@@ -297,7 +297,7 @@
         <!--Total Time Saved View Controller-->
         <scene sceneID="bLq-1c-Kbt">
             <objects>
-                <viewController storyboardIdentifier="totalTimeSavedViewController" id="JTT-Ha-CZv" customClass="TotalTimeSavedViewController" customModule="Crouded" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="totalTimeSavedViewController" id="JTT-Ha-CZv" customClass="TotalTimeSavedViewController" customModule="Crowded" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="p5m-pW-FE8"/>
                         <viewControllerLayoutGuide type="bottom" id="2kR-qh-MBW"/>
