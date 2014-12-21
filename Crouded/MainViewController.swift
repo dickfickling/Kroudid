@@ -60,7 +60,7 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
             User.storedUser().myCommute.startCommute()
             
         } else {
-            let alert = UIAlertView(title: "Set your commute", message: "Before you can use Crouded, you have to tell us a bit about your commute.", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Set your commute", message: "Before you can use Crowded, you have to tell us a bit about your commute.", delegate: self, cancelButtonTitle: "OK")
             alert.show()
         }
     }
