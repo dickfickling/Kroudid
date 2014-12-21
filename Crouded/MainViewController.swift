@@ -65,6 +65,7 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
                     self.carView.frame.origin.x = 320
                 }, completion: { complete in
                     if !self.done {
+                        self.carView.frame.origin.x = -30
                         self.left()
                     }
                 })
