@@ -14,7 +14,8 @@ class TotalTimeSavedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.timeSavedLabel.text = "\(User.storedUser().myStats.totalTimeSaved)"
+        let minutesSaved = Int(User.storedUser().myStats.totalTimeSaved) / 60
+        self.timeSavedLabel.text = "\(minutesSaved)"
     }
 
 }
