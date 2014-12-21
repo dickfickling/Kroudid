@@ -10,12 +10,15 @@ import UIKit
 
 class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
+    @IBOutlet weak var hourLabel: UILabel!
+    @IBOutlet weak var thirtyMinLabel: UILabel!
     @IBOutlet weak var carView: UIImageView!
     @IBOutlet weak var firstIncentive: UIControl!
     @IBOutlet weak var secondIncentive: UIControl!
     @IBOutlet weak var thirdIncentive: UIControl!
     var pageViewController: UIPageViewController!
     var statsViewControllers: [UIViewController] = []
+    var done: Bool = false
 
     override func viewDidLoad() {
         
@@ -41,15 +44,29 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("left"), name: CommuteStartedNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("arrived"), name: CommuteCompletedNotification, object: nil)
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "h:mm"
+        
+        let thirtymin = NSDate(timeIntervalSinceNow: 30*60)
+        let hour = NSDate(timeIntervalSinceNow: 60*60)
+        
+        self.thirtyMinLabel.text = "leave at \(dateFormatter.stringFromDate(thirtymin))"
+        self.hourLabel.text = "leave at \(dateFormatter.stringFromDate(hour))"
 
     }
     
     func left() {
         UIView.animateWithDuration(0.3, animations: {
+            self.thirtyMinLabel.alpha = 0.0
             self.carView.alpha = 1.0
             }, completion: { complete in
                 UIView.animateWithDuration(10, animations: {
                     self.carView.frame.origin.x = 320
+                }, completion: { complete in
+                    if !self.done {
+                        self.left()
+                    }
                 })
         })
     }
