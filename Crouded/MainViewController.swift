@@ -73,6 +73,7 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
     }
     
     func arrived() {
+        done = true
         UIView.animateWithDuration(0.3, animations: {
             self.carView.alpha = 0.0
         })
