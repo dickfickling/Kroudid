@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
+    @IBOutlet weak var carView: UIImageView!
     @IBOutlet weak var firstIncentive: UIControl!
     @IBOutlet weak var secondIncentive: UIControl!
     @IBOutlet weak var thirdIncentive: UIControl!
@@ -37,7 +38,26 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
         self.pageViewController.setViewControllers([self.statsViewControllers[1]], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("incentivesChanged:"), name: IncentivesChangedNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("left"), name: CommuteStartedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("arrived"), name: CommuteCompletedNotification, object: nil)
 
+    }
+    
+    func left() {
+        UIView.animateWithDuration(0.3, animations: {
+            self.carView.alpha = 1.0
+            }, completion: { complete in
+                UIView.animateWithDuration(10, animations: {
+                    self.carView.frame.origin.x = 320
+                })
+        })
+    }
+    
+    func arrived() {
+        UIView.animateWithDuration(0.3, animations: {
+            self.carView.alpha = 0.0
+        })
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -63,6 +83,7 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
             let alert = UIAlertView(title: "Set your commute", message: "Before you can use Crowded, you have to tell us a bit about your commute.", delegate: self, cancelButtonTitle: "OK")
             alert.show()
         }
+        //left()
     }
     
     func incentivesChanged(info: NSNotification) {
