@@ -65,6 +65,7 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
     }
     
     deinit {
+        User.signOutStoredUser();
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 

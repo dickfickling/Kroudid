@@ -75,7 +75,7 @@ static User* sharedUser = nil;
         return sharedUser;
     }
     
-    
+    /*
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString* email = [defaults objectForKey:UserDefaultsEmailKey];
     BOOL locked = [defaults boolForKey:UserDefaultsLockedKey];
@@ -84,7 +84,7 @@ static User* sharedUser = nil;
     if (email) {
         sharedUser = [[User alloc] initWithEmail:email stats:stats home:nil work:nil locked:locked];
         return sharedUser;
-    }
+    }   */
     
     return nil;
 }
