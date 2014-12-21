@@ -93,7 +93,7 @@ static User* sharedUser = nil;
 {
     // Clear entry in defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:nil forKey:UserDefaultsEmailKey];
+    [defaults removeObjectForKey:UserDefaultsEmailKey];
     [defaults synchronize];
     sharedUser = nil;
 }

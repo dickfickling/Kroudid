@@ -25,6 +25,8 @@
 		0FA1EE0E1A46105D001E8ED6 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1EE0C1A46105D001E8ED6 /* RoundedButton.swift */; };
 		0FA1EE101A4620AC001E8ED6 /* Incentives-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1EE0F1A4620AC001E8ED6 /* Incentives-extension.swift */; };
 		0FA1EE121A4637BE001E8ED6 /* UnderlinedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1EE111A4637BE001E8ED6 /* UnderlinedButton.swift */; };
+		0FA1EE161A464202001E8ED6 /* ss-standard.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA1EE151A464202001E8ED6 /* ss-standard.otf */; };
+		0FA1EE171A464202001E8ED6 /* ss-standard.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA1EE151A464202001E8ED6 /* ss-standard.otf */; };
 		32DFAAD81A45482D00ECB97A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAAD71A45482D00ECB97A /* User.m */; };
 		32DFAADB1A45484600ECB97A /* Incentives.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAADA1A45484600ECB97A /* Incentives.m */; };
 		32DFAADE1A45485E00ECB97A /* Stats.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFAADD1A45485E00ECB97A /* Stats.m */; };
@@ -69,7 +71,7 @@
 		0FA1EE0C1A46105D001E8ED6 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		0FA1EE0F1A4620AC001E8ED6 /* Incentives-extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Incentives-extension.swift"; sourceTree = "<group>"; };
 		0FA1EE111A4637BE001E8ED6 /* UnderlinedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlinedButton.swift; sourceTree = "<group>"; };
-		0FA1EE131A463B8A001E8ED6 /* ss-standard.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ss-standard.otf"; sourceTree = "<group>"; };
+		0FA1EE151A464202001E8ED6 /* ss-standard.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ss-standard.otf"; sourceTree = "<group>"; };
 		32DFAAD61A45482D00ECB97A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		32DFAAD71A45482D00ECB97A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		32DFAAD91A45484600ECB97A /* Incentives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Incentives.h; sourceTree = "<group>"; };
@@ -159,7 +161,7 @@
 		0F75109E1A453C93005AA052 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0FA1EE131A463B8A001E8ED6 /* ss-standard.otf */,
+				0FA1EE151A464202001E8ED6 /* ss-standard.otf */,
 				0F75109F1A453C93005AA052 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -300,6 +302,7 @@
 			files = (
 				0F7510CF1A453CE5005AA052 /* Main.storyboard in Resources */,
 				0F7510AE1A453C93005AA052 /* LaunchScreen.xib in Resources */,
+				0FA1EE161A464202001E8ED6 /* ss-standard.otf in Resources */,
 				0F7510AB1A453C93005AA052 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA1EE171A464202001E8ED6 /* ss-standard.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
