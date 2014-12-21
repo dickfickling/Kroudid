@@ -107,7 +107,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vuA-YO-d7h" customClass="UIControl">
-                                <rect key="frame" x="0.0" y="372" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="384" width="320" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Now" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDp-io-a2k">
                                         <rect key="frame" x="8" y="21" width="135" height="21"/>
@@ -173,7 +173,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bVo-1O-olm" customClass="UIControl">
-                                <rect key="frame" x="0.0" y="440" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="446" width="320" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="In 30 minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6u-fw-kM4">
                                         <rect key="frame" x="8" y="15" width="224" height="21"/>
@@ -203,7 +203,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.40000000000000002" green="0.52156862745098043" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.43067081480000002" green="0.53716006760000001" blue="0.70438697269999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="incentiveSelected:" destination="Re5-p5-xP1" eventType="touchUpInside" id="REm-5j-MPk"/>
                                 </connections>
