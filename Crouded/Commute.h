@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <ArcGIS/ArcGIS.h>
 
+#define CommuteStartedNotification @"CommuteStartedNotification"
+#define CommuteCompletedNotification @"CommuteCompletedNotification"
+#define CommuteQuitNotification @"CommuteQuitNotification"
+
 @interface Commute : NSObject
 
 @property (nonatomic, strong, readonly) AGSPoint* p1;

@@ -127,6 +127,7 @@ typedef enum{
             [self startWritingNewCommute];
             break;
         case CommuteStateArrivedP1:
+            [self completeCommuteAndWrite:YES];
             break;
         case CommuteStateAtP2:
             break;
@@ -134,6 +135,7 @@ typedef enum{
             [self startWritingNewCommute];
             break;
         case CommuteStateArrivedP2:
+            [self completeCommuteAndWrite:YES];
             break;
         default:
             break;
@@ -160,6 +162,7 @@ typedef enum{
         case CommuteStateAwayP1:
             if (p1) {
                 self.commuteState = CommuteStateAtP1;
+                [self completeCommuteAndWrite:NO];
             }
             else if (p2) {
                 self.commuteState = CommuteStateArrivedP2;
@@ -179,6 +182,8 @@ typedef enum{
         case CommuteStateAwayP2:
             if (p2) {
                 self.commuteState = CommuteStateAtP2;
+                [self completeCommuteAndWrite:NO];
+
             }
             else if (p1) {
                 self.commuteState = CommuteStateArrivedP1;
@@ -200,16 +205,25 @@ typedef enum{
     [_currentCommute addPathToPolyline];
     
     _startDate = [NSDate date];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:CommuteStartedNotification object:nil];
 }
 
 - (void)writeToCommute
 {
-    
+    NSLog(@"Write");
 }
 
 - (void)completeCommuteAndWrite:(BOOL)write
 {
     _endDate = [NSDate date];
+    
+    if (write) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:CommuteCompletedNotification object:nil];
+    }
+    else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:CommuteQuitNotification object:nil];
+    }
 }
 
 - (NSString*)stringFromState:(CommuteState)state
