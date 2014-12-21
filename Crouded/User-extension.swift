@@ -31,9 +31,8 @@ extension User {
     
     func refreshIncentives() { // checks to refresh every five minutes
         let commute = self.myCommute
-        //TODO not from home
         if !locked {
-            APIManager.get("/incentives/\(self.email)", params: ["from": "home"],
+            APIManager.get("/incentives/\(self.email)", params: ["from": commute.atHomeOrAtWork() ? "home" : "work"],
                 success: { data in
                     self.myIncentives.times.removeAll(keepCapacity: false)
                     let incentives = data["incentives"]! as [[String: AnyObject]]

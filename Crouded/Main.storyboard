@@ -6,8 +6,6 @@
     <customFonts key="customFonts">
         <mutableArray key="ss-standard.otf">
             <string>SSStandard</string>
-            <string>SSStandard</string>
-            <string>SSStandard</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -108,7 +106,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vuA-YO-d7h">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vuA-YO-d7h" customClass="UIControl">
                                 <rect key="frame" x="0.0" y="372" width="320" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="leave at 7" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDp-io-a2k">
@@ -117,19 +115,11 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0u-qn-cp3">
-                                        <rect key="frame" x="274" y="15" width="46" height="30"/>
-                                        <fontDescription key="fontDescription" name="SSStandard" family="SS Standard" pointSize="15"/>
-                                        <state key="normal" title="🔓">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="lockButtonPressed:" destination="Re5-p5-xP1" eventType="touchUpInside" id="J91-uK-sfh"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.52941176470588236" green="0.67843137254901964" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="incentiveSelected:" destination="Re5-p5-xP1" eventType="touchUpInside" id="Xw8-Rm-SHX"/>
+                                </connections>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b5R-A2-D0c">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="326"/>
@@ -137,7 +127,7 @@
                                     <segue destination="gtt-6D-nfu" kind="embed" identifier="embedSegue" id="MS2-xC-0uM"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="snv-Dn-nsE">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="snv-Dn-nsE" customClass="UIControl">
                                 <rect key="frame" x="0.0" y="508" width="320" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="leave at 9" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNz-IL-IjZ">
@@ -146,21 +136,13 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T60-CQ-dPf">
-                                        <rect key="frame" x="274" y="15" width="46" height="30"/>
-                                        <fontDescription key="fontDescription" name="SSStandard" family="SS Standard" pointSize="15"/>
-                                        <state key="normal" title="🔓">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="lockButtonPressed:" destination="Re5-p5-xP1" eventType="touchUpInside" id="wDD-Q1-wPH"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.3411764705882353" green="0.50196078431372548" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="incentiveSelected:" destination="Re5-p5-xP1" eventType="touchUpInside" id="Qe4-Ms-S9f"/>
+                                </connections>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bVo-1O-olm">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bVo-1O-olm" customClass="UIControl">
                                 <rect key="frame" x="0.0" y="440" width="320" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="leave at 8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6u-fw-kM4">
@@ -169,44 +151,40 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSm-FR-uLP">
-                                        <rect key="frame" x="274" y="15" width="46" height="30"/>
-                                        <fontDescription key="fontDescription" name="SSStandard" family="SS Standard" pointSize="15"/>
-                                        <state key="normal" title="🔓">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="lockButtonPressed:" destination="Re5-p5-xP1" eventType="touchUpInside" id="5R1-ru-zPZ"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.52156862745098043" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ws-BY-ZrN">
-                                <rect key="frame" x="290" y="20" width="30" height="30"/>
-                                <state key="normal" title="🚪">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <connections>
-                                    <action selector="logoutButtonPressed:" destination="Re5-p5-xP1" eventType="touchUpInside" id="ZzC-cd-Cai"/>
+                                    <action selector="incentiveSelected:" destination="Re5-p5-xP1" eventType="touchUpInside" id="REm-5j-MPk"/>
                                 </connections>
-                            </button>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zR-op-0gw" customClass="UnderlinedButton" customModule="Crouded" customModuleProvider="target">
                                 <rect key="frame" x="81" y="334" width="158" height="30"/>
                                 <state key="normal" title="update my commute">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.3411764706" green="0.50196078430000002" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="por-Uf-VxA" kind="presentation" identifier="setCommuteSegue" id="bXb-1f-5T7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFc-dC-RMH">
+                                <rect key="frame" x="282" y="28" width="38" height="30"/>
+                                <fontDescription key="fontDescription" name="SSStandard" family="SS Standard" pointSize="15"/>
+                                <state key="normal" title="">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="Re5-p5-xP1" eventType="touchUpInside" id="WvR-eB-INh"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="lockButton" destination="T60-CQ-dPf" id="3ef-S6-Baq"/>
+                        <outlet property="firstIncentive" destination="vuA-YO-d7h" id="zQc-SZ-NtO"/>
+                        <outlet property="secondIncentive" destination="bVo-1O-olm" id="vSg-kC-l5k"/>
+                        <outlet property="thirdIncentive" destination="snv-Dn-nsE" id="oNo-Xd-Sxz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lpv-EO-FuS" userLabel="First Responder" sceneMemberID="firstResponder"/>
