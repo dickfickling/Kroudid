@@ -56,6 +56,9 @@ class MainViewController: UIViewController, UIAlertViewDelegate, UIPageViewContr
     override func viewDidAppear(animated: Bool) {
         if User.storedUser().hasValidCommute() {
             updateViewForUser()
+            
+            User.storedUser().myCommute.startCommute()
+            
         } else {
             let alert = UIAlertView(title: "Set your commute", message: "Before you can use Crouded, you have to tell us a bit about your commute.", delegate: self, cancelButtonTitle: "OK")
             alert.show()

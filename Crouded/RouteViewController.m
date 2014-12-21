@@ -174,11 +174,6 @@ NSMutableArray* constraints = [NSMutableArray arrayWithCapacity:32];        // d
     [[User storedUser] findHomeAddress:address1 workAddress:address2 completion:^(NSError* e) {
         
         [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
-        
-        if (!e) {
-            [User storedUser].myCommute.gps = [MapView sharedMapView].locationDisplay;
-        }
-        
         [weakSelf drawCommute];
         [weakSelf populateToolbar];
     }];
